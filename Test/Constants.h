@@ -15,8 +15,7 @@ struct Constants
     static const int maxBoredom;
     static const int boredomThreshold;
 
-    static const IDPair currentDog;
-    static const IDPair numberActors;
+    static const IDPair currentBTState;
 };
 
 #endif // !CONSTANTS_H

@@ -2,6 +2,7 @@
 #include "SelectorBTNode.h"
 
 #include "Constants.h"
+#include "BTState.h"
 #include "Dog.h"
 #include "NodeActorAIState.h"
 
@@ -25,14 +26,10 @@ void SelectorBTNode::initialize()
 
 StatusType SelectorBTNode::process()
 {
-    Dog* currentDog = static_cast<Dog*>(mBlackboard->get(Constants::currentDog));
-    if (currentDog == nullptr)
-    {
-        std::cout << "ERROR::SelectorBTNode: CurrentDog is nullptr" << std::endl;
-        return StatusType::FAILURE;
-    }
+    BTState* btState = static_cast<BTState*>(mBlackboard->get(Constants::currentBTState));
+
     // retrieve node state data for this actor
-    auto stateID = std::make_pair(mID, currentDog->getID());
+    auto stateID = std::make_pair(mID, btState->currentDog->getID());
     NodeActorAIState* state = static_cast<NodeActorAIState*>(mBlackboard->get(stateID));
     if (state == nullptr)
     {

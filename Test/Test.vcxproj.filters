@@ -48,20 +48,26 @@
     <ClInclude Include="Blackboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="isBoredConditionBTNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Constants.h">
       <Filter>Utility</Filter>
     </ClInclude>
     <ClInclude Include="SelectorBTNode.h">
       <Filter>Header Files\BT</Filter>
     </ClInclude>
-    <ClInclude Include="NodeActorAIState.h">
+    <ClInclude Include="SequenceBTNode.h">
       <Filter>Header Files\BT</Filter>
     </ClInclude>
-    <ClInclude Include="SequenceBTNode.h">
+    <ClInclude Include="isBoredConditionBTNode.h">
+      <Filter>Header Files\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="BTState.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="DecoratorBTNode.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeActorAIState.h">
+      <Filter>Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -92,20 +98,23 @@
     <ClCompile Include="Blackboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="isBoredConditionBTNode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SelectorBTNode.cpp">
       <Filter>Source Files\BT</Filter>
     </ClCompile>
     <ClCompile Include="Constants.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
-    <ClCompile Include="NodeActorAIState.cpp">
+    <ClCompile Include="SequenceBTNode.cpp">
+      <Filter>Source Files\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="isBoredConditionBTNode.cpp">
+      <Filter>Source Files\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="DecoratorBTNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SequenceBTNode.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="NodeActorAIState.cpp">
+      <Filter>Utility</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

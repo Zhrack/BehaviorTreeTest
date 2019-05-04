@@ -3,6 +3,8 @@
 
 #include "Blackboard.h"
 #include "Dog.h"
+#include "BTState.h"
+#include "BaseBTNode.h"
 
 #include <memory>
 
@@ -17,10 +19,15 @@ public:
     AIController();
     ~AIController();
 
-    void update(const std::vector<Dog>& actors);
+    void initialize();
+
+    void update(std::vector<Dog*>& actors);
+
+    void terminate();
 
 private:
     std::shared_ptr< Blackboard > mBlackBoard;
+    std::unique_ptr< BaseBTNode > mRootNode;
 };
 
 

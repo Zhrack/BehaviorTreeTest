@@ -9,5 +9,4 @@ const int Constants::minBoredom = 0;
 const int Constants::maxBoredom = 100;
 const int Constants::boredomThreshold = 80;
 
-const IDPair Constants::currentDog = std::make_pair(-1, -1);
-const IDPair Constants::numberActors = std::make_pair(-2, -2);
+const IDPair Constants::currentBTState = std::make_pair(-1, -1);

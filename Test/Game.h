@@ -29,7 +29,7 @@ private:
     // controls the status of the overral application
     bool mExit;
 
-    std::vector<Dog> mActors;
+    std::vector<Dog*> mActors;
     AIController aiController;
 };
 

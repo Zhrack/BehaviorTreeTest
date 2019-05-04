@@ -151,6 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BTState.h" />
+    <ClInclude Include="DecoratorBTNode.h" />
     <ClInclude Include="NodeActorAIState.h" />
     <ClInclude Include="BaseBTNode.h" />
     <ClInclude Include="AIController.h" />
@@ -166,6 +168,7 @@
     <ClInclude Include="SequenceBTNode.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DecoratorBTNode.cpp" />
     <ClCompile Include="NodeActorAIState.cpp" />
     <ClCompile Include="BaseBTNode.cpp" />
     <ClCompile Include="AIController.cpp" />

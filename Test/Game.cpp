@@ -20,7 +20,7 @@ void Game::initialize(int numDogs)
 
     for (unsigned int i = 0; i < numDogs; ++i)
     {
-        mActors.push_back(Dog("dog" + std::to_string(i)));
+        mActors.push_back(new Dog("dog" + std::to_string(i)));
     }
 }
 
