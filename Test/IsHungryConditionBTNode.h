@@ -5,18 +5,26 @@
 
 
 /// <summary>
-/// 
+/// Condition that 
 /// </summary>
 /// <seealso cref="BaseBTNode" />
-class IsHungryBTNode : public BaseBTNode
+class IsHungryConditionBTNode : public BaseBTNode
 {
 public:
-    IsHungryBTNode();
-    virtual ~IsHungryBTNode();
+    IsHungryConditionBTNode();
+    virtual ~IsHungryConditionBTNode();
 
     // Inherited via BaseBTNode
     virtual void initialize() override;
+
+    /// <summary>
+    /// Checks the level of hunger of the actor.
+    /// </summary>
+    /// <returns>
+    /// The finishing status of the node.
+    /// </returns>
     virtual statusType process() override;
+
     virtual void terminate() override;
     /// <summary>
     /// If called it will throw an exception. A crash is really visible so it will force the user to control the node he's using.

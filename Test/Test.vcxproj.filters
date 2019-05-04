@@ -30,17 +30,20 @@
     <ClInclude Include="AIController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BTFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BaseBTNode.h">
       <Filter>Header Files\BT</Filter>
     </ClInclude>
     <ClInclude Include="CompositeBTNode.h">
       <Filter>Header Files\BT</Filter>
     </ClInclude>
-    <ClInclude Include="IsHungryBTNode.h">
+    <ClInclude Include="Dog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IsHungryConditionBTNode.h">
       <Filter>Header Files\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="Blackboard.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -56,17 +59,20 @@
     <ClCompile Include="AIController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BTFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BaseBTNode.cpp">
       <Filter>Source Files\BT</Filter>
     </ClCompile>
     <ClCompile Include="CompositeBTNode.cpp">
       <Filter>Source Files\BT</Filter>
     </ClCompile>
-    <ClCompile Include="IsHungryBTNode.cpp">
+    <ClCompile Include="Dog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IsHungryConditionBTNode.cpp">
       <Filter>Source Files\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="Blackboard.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

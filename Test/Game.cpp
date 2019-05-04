@@ -13,8 +13,12 @@ Game::~Game()
 }
 
 
-void Game::initialize()
+void Game::initialize(int numDogs)
 {
+    // insert some dogs
+    mActors.clear();
+    auto it = mActors.begin();
+    mActors.insert(it, numDogs);
 }
 
 void Game::loop()
@@ -23,7 +27,7 @@ void Game::loop()
 
     while (!mExit)
     {
-
+        // TODO: AIController update()
     }
 
     this->terminate();

@@ -3,6 +3,8 @@
 
 #include <vector>
 
+#include "Dog.h"
+
 
 class Game
 {
@@ -17,7 +19,7 @@ public:
     void exitGame();
 private:
     // perform some initialization work before starting loop
-    void initialize();
+    void initialize(int numDogs = 5);
 
     // clean up point before destructor is called
     void terminate();
@@ -27,6 +29,7 @@ private:
     bool mExit;
 
     // TODO: vectors of Dogs
+    std::vector<Dog> mActors;
     // TODO: instance of AIController
 };
 

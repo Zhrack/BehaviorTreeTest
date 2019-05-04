@@ -4,12 +4,17 @@
 #include <memory>
 #include <vector>
 
-enum statusType {
+enum statusType 
+{
     FAILURE = 0,
     SUCCESS,
     RUNNING
 };
 
+/// <summary>
+/// Based on the composite pattern, with children-related operations designed for uniformity.
+/// This is the base class for the hierarchy and defines the interface for the Behavior Tree.
+/// </summary>
 class BaseBTNode
 {
 public:
