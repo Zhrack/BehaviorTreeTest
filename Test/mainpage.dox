@@ -1,0 +1,27 @@
+/*! \mainpage Project Overview
+ *
+ * \section intro_sec Introduction
+ *
+ * First of all, thanks for this experience. This was my first time implementing such a system and I must say that it has been a funny project.
+ * 
+ *
+ *
+ * \section setup_sec Project setup
+ *
+ * The project is a VS2017 solution without libraries. The only dependency is the STL library.
+ *
+ * \section overview_sec Overview
+ *
+ * The test is structured in a few main sections.
+
+ * \subsection subsec1 High level classes
+ *
+ * The Game class is the highest level one, which encapsulates all the application. It also simulates a complete game, structured with a update loop. 
+ * In fact the ownership of the actor data is in this class. At every update, the actor list is passed to the AIController, the same as every other (virtual) subsystem of this game.
+ *
+ * The AIController class manages all the AI work. It stores the shared instance of the BlackBoard and starts the Behavior Tree update cycle for every actor passed by the Game class.
+ * 
+ *
+ *
+ * 
+ */
