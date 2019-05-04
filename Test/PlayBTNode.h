@@ -1,14 +1,14 @@
-#ifndef IDLE_ACTION_BT_NODE_H
-#define IDLE_ACTION_BT_NODE_H
+#ifndef PLAY_ACTION_BT_NODE_H
+#define PLAY_ACTION_BT_NODE_H
 
 #include "BaseBTNode.h"
 
 
-class IdleBTNode : public BaseBTNode
+class PlayBTNode : public BaseBTNode
 {
 public:
-    IdleBTNode(std::shared_ptr< Blackboard > bb);
-    virtual ~IdleBTNode();
+    PlayBTNode(std::shared_ptr< Blackboard > bb);
+    virtual ~PlayBTNode();
 
     // Inherited via BaseBTNode
     virtual void initialize() override;
@@ -17,4 +17,4 @@ public:
     virtual void addNode(std::unique_ptr<BaseBTNode> newNode) override;
 };
 
-#endif // !IDLE_ACTION_BT_NODE_H
+#endif //! PLAY_ACTION_BT_NODE_H

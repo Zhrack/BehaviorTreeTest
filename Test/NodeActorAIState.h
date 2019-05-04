@@ -6,7 +6,7 @@
 /// </summary>
 struct NodeActorAIState
 {
-    NodeActorAIState(int nodeID);
+    NodeActorAIState(unsigned int nodeID);
 
     /// <summary>
     /// The ID of the associated BT node.
@@ -16,7 +16,7 @@ struct NodeActorAIState
     /// <summary>
     /// The index of the running child. If the last iteration didn't return RUNNING, this is -1.
     /// </summary>
-    unsigned int mRunningChild;
+    int mRunningChild;
 };
 
 #endif // !NODE_ACTOR_AI_STATE_H

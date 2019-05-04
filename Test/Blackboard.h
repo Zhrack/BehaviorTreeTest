@@ -18,21 +18,21 @@ public:
     /// </summary>
     /// <param name="key">The key.</param>
     /// <param name="value">The value.</param>
-    void addValue(const std::pair<unsigned int, unsigned int>& key, void* value);
+    void addValue(const std::string& key, void* value);
 
     /// <summary>
     /// Gets the specified value.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <returns>The value or nullptr if not found.</returns>
-    void* get(const std::pair<unsigned int, unsigned int>& key);
+    void* get(const std::string& key);
 
     /// <summary>
     /// Removes the value.
     /// </summary>
     /// <param name="key">The key of the value to be removed.</param>
     /// <returns>True if successfully removed, false otherwise.</returns>
-    bool removeValue(const std::pair<unsigned int, unsigned int>& key);
+    bool removeValue(const std::string& key);
 
     void cleanAllByNodeID(unsigned int nodeID);
 
@@ -41,7 +41,7 @@ private:
     /// The data structure. First pair is the ID of the Node, second pair is the ID of the Dog
     /// </summary>
     std::unordered_map<
-        std::pair<unsigned int, unsigned int>, 
+        std::string, 
         void*> mData;
 };
 

@@ -13,4 +13,5 @@ BaseBTNode::BaseBTNode(std::shared_ptr< Blackboard > bb) :
 
 BaseBTNode::~BaseBTNode()
 {
+    mBlackboard->cleanAllByNodeID(mID);
 }

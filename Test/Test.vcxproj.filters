@@ -90,6 +90,12 @@
     <ClInclude Include="IdleBTNode.h">
       <Filter>Header Files\BT\Actions</Filter>
     </ClInclude>
+    <ClInclude Include="PlayBTNode.h">
+      <Filter>Header Files\BT\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="EatBTNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -145,6 +151,12 @@
     </ClCompile>
     <ClCompile Include="IdleBTNode.cpp">
       <Filter>Source Files\BT\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayBTNode.cpp">
+      <Filter>Source Files\BT\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="EatBTNode.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "Game.h"
 
+#include <iostream>
+#include <chrono>
+#include <thread>
 
 Game::Game() :
     mExit(false)
@@ -13,7 +16,7 @@ Game::~Game()
 }
 
 
-void Game::initialize(int numDogs)
+void Game::initialize(unsigned int numDogs)
 {
     // insert some dogs
     mActors.clear();
@@ -22,20 +25,24 @@ void Game::initialize(int numDogs)
     {
         mActors.push_back(new Dog("dog" + std::to_string(i)));
     }
+
+    mAiController.initialize();
 }
 
 void Game::loop()
 {
-    this->initialize();
+    this->initialize(1);
 
     while (!mExit)
     {
         // get input from the player...
 
         // update other subsystems...
-        aiController.update(mActors);
-
+        mAiController.update(mActors);
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
         // render our beautiful dogs...
+
+        
     }
 
     this->terminate();
@@ -43,6 +50,12 @@ void Game::loop()
 
 void Game::terminate()
 {
+    for (auto a : mActors)
+    {
+        delete a;
+        a = nullptr;
+    }
+    mActors.clear();
 }
 
 void Game::exitGame()

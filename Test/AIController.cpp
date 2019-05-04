@@ -2,6 +2,15 @@
 #include "AIController.h"
 
 #include "Constants.h"
+#include "Dog.h"
+#include <iostream>
+
+#include "SelectorBTNode.h"
+#include "SequenceBTNode.h"
+#include "InverterBTNode.h"
+#include "isBoredConditionBTNode.h"
+#include "IsHungryConditionBTNode.h"
+#include "IdleBTNode.h"
 
 AIController::AIController() :
     mBlackBoard(new Blackboard()),
@@ -25,7 +34,26 @@ AIController::~AIController()
 void AIController::initialize()
 {
     // build behavior tree
-    mRootNode.reset(nullptr);
+    mRootNode.reset(new SelectorBTNode(mBlackBoard));
+
+    // IDLE BRANCH
+    std::unique_ptr<SequenceBTNode> idleSequence(new SequenceBTNode(mBlackBoard));
+
+    std::unique_ptr<IsBoredConditionBTNode> isBoredIdleCondition(new IsBoredConditionBTNode(mBlackBoard));
+    std::unique_ptr<IsHungryConditionBTNode> isHungryIdleCondition(new IsHungryConditionBTNode(mBlackBoard));
+
+    std::unique_ptr<IdleBTNode> idleAction(new IdleBTNode(mBlackBoard));
+
+    // add to idle sequence
+    idleSequence->addNode(std::move(isHungryIdleCondition));
+    idleSequence->addNode(std::move(isBoredIdleCondition));
+    idleSequence->addNode(std::move(idleAction));
+
+    mRootNode->addNode(std::move(idleSequence));
+
+    // PLAY BRANCH
+
+
 }
 
 void AIController::update(std::vector<Dog*>& actors)
@@ -36,11 +64,29 @@ void AIController::update(std::vector<Dog*>& actors)
     btState->numActors = actors.size();
 
     // run BT for currentDog
+    std::string resultText;
     for (auto it = actors.begin(); it != actors.end(); ++it)
     {
         // update currentDog value
         btState->currentDog = *it;
-        mRootNode->process();
+        auto result = mRootNode->process();
+
+        switch (result)
+        {
+        case FAILURE:
+            resultText = "FAILURE";
+            break;
+        case SUCCESS:
+            resultText = "SUCCESS";
+            break;
+        case RUNNING:
+            resultText = "RUNNING";
+            break;
+        default:
+            break;
+        }
+
+        std::cout << "BT for dog " << (*it)->getName() << " returns " << resultText << std::endl;
     }
 }
 

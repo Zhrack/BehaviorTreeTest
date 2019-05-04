@@ -13,6 +13,8 @@ public:
     Game();
     ~Game();
 
+    void handleInput();
+
     // where the update loop is performed
     void loop();
 
@@ -20,7 +22,7 @@ public:
     void exitGame();
 private:
     // perform some initialization work before starting loop
-    void initialize(int numDogs = 5);
+    void initialize(unsigned int numDogs = 5);
 
     // clean up point before destructor is called
     void terminate();
@@ -30,7 +32,8 @@ private:
     bool mExit;
 
     std::vector<Dog*> mActors;
-    AIController aiController;
+    AIController mAiController;
+
 };
 
 #endif // !GAME_H

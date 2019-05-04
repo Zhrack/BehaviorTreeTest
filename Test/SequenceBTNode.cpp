@@ -17,7 +17,6 @@ SequenceBTNode::SequenceBTNode(std::shared_ptr< Blackboard > bb) :
 
 SequenceBTNode::~SequenceBTNode()
 {
-    mBlackboard->cleanAllByNodeID(mID);
 }
 
 void SequenceBTNode::initialize()
@@ -29,7 +28,8 @@ StatusType SequenceBTNode::process()
     BTState* btState = static_cast<BTState*>(mBlackboard->get(Constants::currentBTState));
 
     // retrieve node state data for this actor
-    auto stateID = std::make_pair(mID, btState->currentDog->getID());
+    auto dogID = btState->currentDog->getID();
+    auto stateID = std::to_string(mID) + "_" + std::to_string(dogID);
     NodeActorAIState* state = static_cast<NodeActorAIState*>(mBlackboard->get(stateID));
     if (state == nullptr)
     {
@@ -46,10 +46,10 @@ StatusType SequenceBTNode::process()
         state->mRunningChild = -1;
     }
 
-
+    StatusType result;
     for (; i < mChildren.size(); ++i)
     {
-        auto result = mChildren[i]->process();
+        result = mChildren[i]->process();
 
         switch (result)
         {
@@ -66,6 +66,8 @@ StatusType SequenceBTNode::process()
             break;
         }
     }
+
+    return result;
 }
 
 void SequenceBTNode::terminate()

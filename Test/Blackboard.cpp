@@ -1,9 +1,10 @@
 #include "pch.h"
 #include "Blackboard.h"
 
-#include "Constants.h"
+#include "BTState.h"
 
-Blackboard::Blackboard()
+Blackboard::Blackboard() :
+    mData()
 {
 }
 
@@ -13,7 +14,7 @@ Blackboard::~Blackboard()
     mData.clear();
 }
 
-void Blackboard::addValue(const std::pair<unsigned int, unsigned int>& key, void * value)
+void Blackboard::addValue(const std::string& key, void * value)
 {
     if (mData.count(key) > 0)
     {
@@ -22,7 +23,7 @@ void Blackboard::addValue(const std::pair<unsigned int, unsigned int>& key, void
     mData.insert({ key, value });
 }
 
-void* Blackboard::get(const std::pair<unsigned int, unsigned int>& key)
+void* Blackboard::get(const std::string& key)
 {
     if (mData.count(key) > 0)
     {
@@ -32,7 +33,7 @@ void* Blackboard::get(const std::pair<unsigned int, unsigned int>& key)
     return nullptr;
 }
 
-bool Blackboard::removeValue(const std::pair<unsigned int, unsigned int>& key)
+bool Blackboard::removeValue(const std::string& key)
 {
     if (mData.erase(key) > 0)
     {
@@ -43,11 +44,10 @@ bool Blackboard::removeValue(const std::pair<unsigned int, unsigned int>& key)
 
 void Blackboard::cleanAllByNodeID(unsigned int nodeID)
 {
-    unsigned int* numActors = static_cast<unsigned int*>(this->get(Constants::numberActors));
-    for (unsigned int i = 0; i < *numActors; ++i)
+    BTState* btState = static_cast<BTState*>(this->get(Constants::currentBTState));
+    for (unsigned int i = 0; i < btState->numActors; ++i)
     {
-        auto pair = std::make_pair(nodeID, i);
-        auto x = this->get(pair);
+        auto x = this->get(std::to_string(nodeID) + "_" + std::to_string(i));
         if (x != nullptr)
         {
             delete x;

@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="BTState.h" />
     <ClInclude Include="DecoratorBTNode.h" />
+    <ClInclude Include="EatBTNode.h" />
     <ClInclude Include="IdleBTNode.h" />
     <ClInclude Include="InverterBTNode.h" />
     <ClInclude Include="NodeActorAIState.h" />
@@ -166,12 +167,14 @@
     <ClInclude Include="isBoredConditionBTNode.h" />
     <ClInclude Include="IsHungryConditionBTNode.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PlayBTNode.h" />
     <ClInclude Include="RepeaterUntilFailBTNode.h" />
     <ClInclude Include="SelectorBTNode.h" />
     <ClInclude Include="SequenceBTNode.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DecoratorBTNode.cpp" />
+    <ClCompile Include="EatBTNode.cpp" />
     <ClCompile Include="IdleBTNode.cpp" />
     <ClCompile Include="InverterBTNode.cpp" />
     <ClCompile Include="NodeActorAIState.cpp" />
@@ -190,6 +193,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="PlayBTNode.cpp" />
     <ClCompile Include="RepeaterUntilFailBTNode.cpp" />
     <ClCompile Include="SelectorBTNode.cpp" />
     <ClCompile Include="SequenceBTNode.cpp" />

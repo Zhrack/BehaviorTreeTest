@@ -17,7 +17,6 @@ SelectorBTNode::SelectorBTNode(std::shared_ptr< Blackboard > bb) :
 
 SelectorBTNode::~SelectorBTNode()
 {
-    mBlackboard->cleanAllByNodeID(mID);
 }
 
 void SelectorBTNode::initialize()
@@ -29,7 +28,8 @@ StatusType SelectorBTNode::process()
     BTState* btState = static_cast<BTState*>(mBlackboard->get(Constants::currentBTState));
 
     // retrieve node state data for this actor
-    auto stateID = std::make_pair(mID, btState->currentDog->getID());
+    auto dogID = btState->currentDog->getID();
+    auto stateID = std::to_string(mID) + "_" + std::to_string(dogID);
     NodeActorAIState* state = static_cast<NodeActorAIState*>(mBlackboard->get(stateID));
     if (state == nullptr)
     {
@@ -46,10 +46,10 @@ StatusType SelectorBTNode::process()
         state->mRunningChild = -1;
     }
     
-
+    StatusType result = StatusType::FAILURE;
     for (; i < mChildren.size(); ++i)
     {        
-        auto result = mChildren[i]->process();
+        result = mChildren[i]->process();
 
         switch (result)
         {
@@ -66,6 +66,8 @@ StatusType SelectorBTNode::process()
             break;
         }
     }
+
+    return result;
 }
 
 void SelectorBTNode::terminate()
