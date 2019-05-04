@@ -61,6 +61,7 @@ StatusType SelectorBTNode::process()
         case StatusType::RUNNING:
             // save current index of running children to BB
             state->mRunningChild = i;
+            return result;
             break;
         default:
         case StatusType::FAILURE:
