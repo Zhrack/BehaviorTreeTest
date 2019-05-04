@@ -1,4 +1,4 @@
-#include "pch.h"
+ 
 #include "IdleBTNode.h"
 
 #include "Dog.h"
@@ -29,25 +29,27 @@ StatusType IdleBTNode::process()
 
     Dog* dog = btState->currentDog;
 
+    StatusType result = StatusType::RUNNING;
+
     // increase boredom and decrease hunger
     dog->setBoredom(dog->getBoredom() + Constants::boredomStep);
     dog->setEnergy(dog->getEnergy() - Constants::hungerStep);
-
-    std::cout << dog->getName() + " is waiting for you. (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
     
     // check for thresholds
     if (dog->getBoredom() > Constants::maxBoredom)
     {
         dog->setBoredom(Constants::maxBoredom);
-        return StatusType::SUCCESS;
+        result =  StatusType::SUCCESS;
     }
     else if (dog->getEnergy() < Constants::minEnergy)
     {
         dog->setEnergy(Constants::minEnergy);
-        return StatusType::SUCCESS;
+        result =  StatusType::SUCCESS;
     }
 
-    return StatusType::RUNNING;
+    std::cout << dog->getName() + " is waiting for you. (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
+
+    return result;
 }
 
 void IdleBTNode::terminate()

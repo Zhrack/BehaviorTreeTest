@@ -7,31 +7,50 @@
 #include "AIController.h"
 
 
+/// <summary>
+/// Base class that represents the entire game.
+/// </summary>
 class Game
 {
 public:
     Game();
     ~Game();
 
-    void handleInput();
-
-    // where the update loop is performed
+    /// <summary>
+    /// Where the update loop is performed.
+    /// </summary>
     void loop();
 
-    // set the game to terminate at the end of the current loop
+    /// <summary>
+    /// Sets the game to terminate at the end of the current loop.
+    /// </summary>
     void exitGame();
 private:
-    // perform some initialization work before starting loop
+    /// <summary>
+    /// Performs some initialization work before starting the loop.
+    /// </summary>
+    /// <param name="numDogs">The number of dogs to simulate.</param>
     void initialize(unsigned int numDogs = 5);
 
-    // clean up point before destructor is called
+    /// <summary>
+    /// Clean up point before destructor is called.
+    /// </summary>
     void terminate();
 
 private:
-    // controls the status of the overral application
+    /// <summary>
+    /// Controls the status of the overral application
+    /// </summary>
     bool mExit;
 
+    /// <summary>
+    /// Vector of actors to be simulated
+    /// </summary>
     std::vector<Dog*> mActors;
+
+    /// <summary>
+    /// Instance of the AiController.
+    /// </summary>
     AIController mAiController;
 
 };

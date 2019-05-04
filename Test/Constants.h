@@ -20,6 +20,7 @@ struct Constants
     // misc settings
     static const int sleepBetweenStepsMilli;
     static const std::string dogNamePrefix;
+    static const int numDogs;
 };
 
 #endif // !CONSTANTS_H

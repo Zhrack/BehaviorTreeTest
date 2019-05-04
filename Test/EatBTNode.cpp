@@ -1,4 +1,4 @@
-#include "pch.h"
+ 
 #include "EatBTNode.h"
 
 #include "Dog.h"
@@ -27,24 +27,26 @@ StatusType EatBTNode::process()
 
     Dog* dog = btState->currentDog;
 
-    // increase boredom and decrease hunger
-    dog->setEnergy(dog->getEnergy() + Constants::hungerStep); // faster
+    StatusType result = StatusType::RUNNING;
 
-    std::cout << dog->getName() + " eats! (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
+    // increase boredom and decrease hunger
+    dog->setEnergy(dog->getEnergy() + Constants::hungerStep);
 
     // check for thresholds
     if (dog->getEnergy() < Constants::minEnergy)
     {
         dog->setEnergy(Constants::minEnergy);
-        return StatusType::SUCCESS;
+        result =  StatusType::SUCCESS;
     }
     else if (dog->getEnergy() > Constants::maxEnergy)
     {
         dog->setEnergy(Constants::maxEnergy);
-        return StatusType::SUCCESS;
+        result =  StatusType::SUCCESS;
     }
 
-    return StatusType::RUNNING;
+    std::cout << dog->getName() + " eats! (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
+
+    return result;
 }
 
 void EatBTNode::terminate()

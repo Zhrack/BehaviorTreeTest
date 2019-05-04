@@ -1,4 +1,4 @@
-#include "pch.h"
+ 
 #include "PlayBTNode.h"
 
 #include "Dog.h"
@@ -27,25 +27,28 @@ StatusType PlayBTNode::process()
 
     Dog* dog = btState->currentDog;
 
+    StatusType result = StatusType::RUNNING;
+
     // increase boredom and decrease hunger
     dog->setBoredom(dog->getBoredom() - Constants::boredomStep * 2);
     dog->setEnergy(dog->getEnergy() - Constants::hungerStep * 2); // faster
 
-    std::cout << dog->getName() + " plays with the ball! (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
 
     // check for thresholds
     if (dog->getBoredom() < Constants::minBoredom)
     {
         dog->setBoredom(Constants::minBoredom);
-        return StatusType::SUCCESS;
+        result = StatusType::SUCCESS;
     }
     else if (dog->getEnergy() < Constants::minEnergy)
     {
         dog->setEnergy(Constants::minEnergy);
-        return StatusType::SUCCESS;
+        result = StatusType::SUCCESS;
     }
 
-    return StatusType::RUNNING;
+    std::cout << dog->getName() + " plays with the ball! (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
+
+    return result;
 }
 
 void PlayBTNode::terminate()

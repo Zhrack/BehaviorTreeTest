@@ -1,4 +1,4 @@
-#include "pch.h"
+ 
 #include "Game.h"
 
 #include <iostream>
@@ -23,7 +23,7 @@ void Game::initialize(unsigned int numDogs)
 
     for (unsigned int i = 0; i < numDogs; ++i)
     {
-        mActors.push_back(new Dog(Constants::dogNamePrefix + std::to_string(i)));
+        mActors.push_back(new Dog(Constants::dogNamePrefix + std::to_string(i), Constants::maxEnergy, Constants::minBoredom));
     }
 
     mAiController.initialize();
@@ -31,7 +31,7 @@ void Game::initialize(unsigned int numDogs)
 
 void Game::loop()
 {
-    this->initialize();
+    this->initialize(Constants::numDogs);
 
     while (!mExit)
     {

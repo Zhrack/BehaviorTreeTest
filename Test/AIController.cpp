@@ -1,4 +1,4 @@
-#include "pch.h"
+ 
 #include "AIController.h"
 
 #include "Constants.h"
@@ -70,18 +70,12 @@ void AIController::initialize()
 
     std::unique_ptr<EatBTNode> eatAction(new EatBTNode(mBlackBoard));
 
-    // add to play sequence
-    //playSequence->addNode(std::move(isHungryPlayCondition));
-    //playSequence->addNode(std::move(playAction));
-
     mRootNode->addNode(std::move(eatAction));
 
 }
 
 void AIController::update(std::vector<Dog*>& actors)
 {
-    // TODO: Save. Insert all actors inside it.
-    // TODO: insert a "currentDog" for the next run of BT. 
     BTState* btState = static_cast<BTState*>(mBlackBoard->get(Constants::currentBTState));
     btState->numActors = actors.size();
 

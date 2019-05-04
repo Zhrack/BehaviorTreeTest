@@ -4,7 +4,7 @@
 #include <unordered_map>
 
 /// <summary>
-/// A blackboard to store values by ID pairs. 
+/// A blackboard to store key-values pairs. 
 /// A template could generalize it, but it's not needed.
 /// </summary>
 class Blackboard
@@ -34,11 +34,15 @@ public:
     /// <returns>True if successfully removed, false otherwise.</returns>
     bool removeValue(const std::string& key);
 
+    /// <summary>
+    /// Cleans all instances linked to the given node ID.
+    /// </summary>
+    /// <param name="nodeID">The node identifier.</param>
     void cleanAllByNodeID(unsigned int nodeID);
 
 private:
     /// <summary>
-    /// The data structure. First pair is the ID of the Node, second pair is the ID of the Dog
+    /// The data structure.
     /// </summary>
     std::unordered_map<
         std::string, 
