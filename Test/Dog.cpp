@@ -5,7 +5,7 @@ unsigned int Dog::nextID = 0;
 
 Dog::Dog(const std::string& name, int hunger, int boredom) :
     mName(name),
-    mHunger(hunger),
+    mEnergy(hunger),
     mBoredom(boredom),
     mID(nextID++)
 {
@@ -21,9 +21,9 @@ std::string Dog::getName() const
     return mName;
 }
 
-int Dog::getHunger() const
+int Dog::getEnergy() const
 {
-    return mHunger;
+    return mEnergy;
 }
 
 int Dog::getBoredom() const
@@ -36,9 +36,9 @@ unsigned int Dog::getID() const
     return mID;
 }
 
-void Dog::setHunger(int value)
+void Dog::setEnergy(int value)
 {
-    this->mHunger = value;
+    this->mEnergy = value;
 }
 
 void Dog::setBoredom(int value)

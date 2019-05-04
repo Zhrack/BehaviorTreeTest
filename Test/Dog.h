@@ -15,12 +15,12 @@ public:
     
     // Getters
     std::string getName() const;
-    int getHunger() const;
+    int getEnergy() const;
     int getBoredom() const;
     unsigned int getID() const;
 
     // Setters
-    void setHunger(int value);
+    void setEnergy(int value);
     void setBoredom(int value);
 
 private:
@@ -31,7 +31,7 @@ private:
     /// <summary>
     /// The hunger level.
     /// </summary>
-    int mHunger;
+    int mEnergy;
     /// <summary>
     /// The boredom level.
     /// </summary>

@@ -46,7 +46,7 @@ StatusType SequenceBTNode::process()
         state->mRunningChild = -1;
     }
 
-    StatusType result;
+    StatusType result = StatusType::FAILURE;
     for (; i < mChildren.size(); ++i)
     {
         result = mChildren[i]->process();

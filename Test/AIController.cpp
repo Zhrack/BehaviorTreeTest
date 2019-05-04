@@ -108,7 +108,7 @@ void AIController::update(std::vector<Dog*>& actors)
             break;
         }
 
-        std::cout << "BT for dog " << (*it)->getName() << " returns " << resultText << std::endl;
+        std::cout << "BT for " << (*it)->getName() << " returns " << resultText << std::endl;
     }
 }
 

@@ -31,14 +31,19 @@ StatusType IdleBTNode::process()
 
     // increase boredom and decrease hunger
     dog->setBoredom(dog->getBoredom() + Constants::boredomStep);
-    dog->setHunger(dog->getHunger() - Constants::hungerStep);
+    dog->setEnergy(dog->getEnergy() - Constants::hungerStep);
 
-    std::cout << dog->getName() + " is waiting for you. (" << dog->getHunger() << ", " << dog->getBoredom() << ")" << std::endl;
+    std::cout << dog->getName() + " is waiting for you. (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
     
     // check for thresholds
-    if (dog->getBoredom() > Constants::maxBoredom || 
-        dog->getHunger() < Constants::minHunger)
+    if (dog->getBoredom() > Constants::maxBoredom)
     {
+        dog->setBoredom(Constants::maxBoredom);
+        return StatusType::SUCCESS;
+    }
+    else if (dog->getEnergy() < Constants::minEnergy)
+    {
+        dog->setEnergy(Constants::minEnergy);
         return StatusType::SUCCESS;
     }
 

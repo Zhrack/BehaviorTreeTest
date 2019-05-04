@@ -23,7 +23,7 @@ void Game::initialize(unsigned int numDogs)
 
     for (unsigned int i = 0; i < numDogs; ++i)
     {
-        mActors.push_back(new Dog("dog" + std::to_string(i)));
+        mActors.push_back(new Dog(Constants::dogNamePrefix + std::to_string(i)));
     }
 
     mAiController.initialize();
@@ -39,10 +39,9 @@ void Game::loop()
 
         // update other subsystems...
         mAiController.update(mActors);
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
-        // render our beautiful dogs...
+        std::this_thread::sleep_for(std::chrono::milliseconds(Constants::sleepBetweenStepsMilli));
 
-        
+        // render our beautiful dogs...
     }
 
     this->terminate();

@@ -28,14 +28,19 @@ StatusType EatBTNode::process()
     Dog* dog = btState->currentDog;
 
     // increase boredom and decrease hunger
-    dog->setHunger(dog->getHunger() + Constants::hungerStep); // faster
+    dog->setEnergy(dog->getEnergy() + Constants::hungerStep); // faster
 
-    std::cout << dog->getName() + " eats! (" << dog->getHunger() << ", " << dog->getBoredom() << ")" << std::endl;
+    std::cout << dog->getName() + " eats! (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
 
     // check for thresholds
-    if (dog->getHunger() < Constants::minHunger ||
-        dog->getHunger() > Constants::maxHunger)
+    if (dog->getEnergy() < Constants::minEnergy)
     {
+        dog->setEnergy(Constants::minEnergy);
+        return StatusType::SUCCESS;
+    }
+    else if (dog->getEnergy() > Constants::maxEnergy)
+    {
+        dog->setEnergy(Constants::maxEnergy);
         return StatusType::SUCCESS;
     }
 

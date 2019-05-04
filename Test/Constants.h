@@ -3,12 +3,10 @@
 
 #include <string>
 
-using IDPair = std::pair<unsigned int, unsigned int>;
-
 struct Constants
 {
-    static const int minHunger;
-    static const int maxHunger;
+    static const int minEnergy;
+    static const int maxEnergy;
     static const int hungerThreshold;
     static const int hungerStep;
 
@@ -18,6 +16,10 @@ struct Constants
     static const int boredomStep;
 
     static const std::string currentBTState;
+
+    // misc settings
+    static const int sleepBetweenStepsMilli;
+    static const std::string dogNamePrefix;
 };
 
 #endif // !CONSTANTS_H

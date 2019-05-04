@@ -29,14 +29,19 @@ StatusType PlayBTNode::process()
 
     // increase boredom and decrease hunger
     dog->setBoredom(dog->getBoredom() - Constants::boredomStep * 2);
-    dog->setHunger(dog->getHunger() - Constants::hungerStep * 2); // faster
+    dog->setEnergy(dog->getEnergy() - Constants::hungerStep * 2); // faster
 
-    std::cout << dog->getName() + " plays with the ball! (" << dog->getHunger() << ", " << dog->getBoredom() << ")" << std::endl;
+    std::cout << dog->getName() + " plays with the ball! (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
 
     // check for thresholds
-    if (dog->getBoredom() < Constants::minBoredom ||
-        dog->getHunger() < Constants::minHunger)
+    if (dog->getBoredom() < Constants::minBoredom)
     {
+        dog->setBoredom(Constants::minBoredom);
+        return StatusType::SUCCESS;
+    }
+    else if (dog->getEnergy() < Constants::minEnergy)
+    {
+        dog->setEnergy(Constants::minEnergy);
         return StatusType::SUCCESS;
     }
 
