@@ -5,7 +5,7 @@
 
 
 /// <summary>
-/// Condition that 
+/// Condition that checks the energy status of the Dog.
 /// </summary>
 /// <seealso cref="BaseBTNode" />
 class IsHungryConditionBTNode : public BaseBTNode
@@ -30,7 +30,7 @@ public:
 
     virtual void terminate() override;
     /// <summary>
-    /// If called it will print an error on std::cout.
+    /// If called it will print an error to std::cout.
     /// </summary>
     /// <param name="newNode">.</param>
     virtual void addNode(std::unique_ptr<BaseBTNode> newNode) override;

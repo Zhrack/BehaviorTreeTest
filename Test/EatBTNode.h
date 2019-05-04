@@ -4,6 +4,10 @@
 #include "BaseBTNode.h"
 
 
+/// <summary>
+/// Action node that perform the Eat activity.
+/// </summary>
+/// <seealso cref="BaseBTNode" />
 class EatBTNode : public BaseBTNode
 {
 public:

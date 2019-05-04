@@ -3,6 +3,10 @@
 
 #include "CompositeBTNode.h"
 
+/// <summary>
+/// Sequencer node for the BT.
+/// </summary>
+/// <seealso cref="CompositeBTNode" />
 class SequenceBTNode : public CompositeBTNode
 {
 public:

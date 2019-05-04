@@ -4,6 +4,10 @@
 #include "CompositeBTNode.h"
 
 
+/// <summary>
+/// Selector node for the BT.
+/// </summary>
+/// <seealso cref="CompositeBTNode" />
 class SelectorBTNode : public CompositeBTNode
 {
 public:

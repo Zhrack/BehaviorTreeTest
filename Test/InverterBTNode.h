@@ -4,6 +4,10 @@
 #include "DecoratorBTNode.h"
 
 
+/// <summary>
+/// Inverter decorator for the BT.
+/// </summary>
+/// <seealso cref="DecoratorBTNode" />
 class InverterBTNode : public DecoratorBTNode
 {
 public:

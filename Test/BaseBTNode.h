@@ -6,7 +6,10 @@
 
 #include "Blackboard.h"
 
-enum StatusType 
+/// <summary>
+/// Possible return statuses of a BT node.
+/// </summary>
+enum StatusType
 {
     FAILURE = 0,
     SUCCESS,

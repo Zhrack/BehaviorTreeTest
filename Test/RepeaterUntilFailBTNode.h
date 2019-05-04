@@ -4,6 +4,10 @@
 #include "DecoratorBTNode.h"
 
 
+/// <summary>
+/// Repeater decorator for the BT. Return SUCCESS only on FAILURE of child node.
+/// </summary>
+/// <seealso cref="DecoratorBTNode" />
 class RepeaterUntilFailBTNode : public DecoratorBTNode
 {
 public:

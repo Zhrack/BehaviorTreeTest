@@ -4,6 +4,10 @@
 #include "BaseBTNode.h"
 
 
+/// <summary>
+/// Action node that perform the Play activity
+/// </summary>
+/// <seealso cref="BaseBTNode" />
 class PlayBTNode : public BaseBTNode
 {
 public:

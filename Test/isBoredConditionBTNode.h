@@ -4,6 +4,10 @@
 #include "BaseBTNode.h"
 
 
+/// <summary>
+/// Condition that checks the boredom status of the Dog.
+/// </summary>
+/// <seealso cref="BaseBTNode" />
 class IsBoredConditionBTNode : public BaseBTNode
 {
 public:

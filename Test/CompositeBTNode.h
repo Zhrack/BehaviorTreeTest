@@ -7,7 +7,7 @@
 #include <vector>
 
 /// <summary>
-/// Adds the functionalities to add new nodes, other functions implementations are forwarded to derived classes.
+/// Provides the functionalities to add new nodes, other functions implementations are forwarded to derived classes.
 /// </summary>
 /// <seealso cref="BaseBTNode" />
 class CompositeBTNode : public BaseBTNode

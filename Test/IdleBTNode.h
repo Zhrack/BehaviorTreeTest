@@ -4,6 +4,10 @@
 #include "BaseBTNode.h"
 
 
+/// <summary>
+/// Action node that perform the Idle activity
+/// </summary>
+/// <seealso cref="BaseBTNode" />
 class IdleBTNode : public BaseBTNode
 {
 public:
