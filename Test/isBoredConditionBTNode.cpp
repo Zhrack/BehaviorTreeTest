@@ -2,35 +2,32 @@
 #include "isBoredConditionBTNode.h"
 
 #include "Dog.h"
-#include "Constants.h"
+#include "BTState.h"
 
 #include <iostream>
 
-isBoredConditionBTNode::isBoredConditionBTNode(std::shared_ptr< Blackboard > bb) :
+IsBoredConditionBTNode::IsBoredConditionBTNode(std::shared_ptr< Blackboard > bb) :
     BaseBTNode(bb)
 {
 }
 
 
-isBoredConditionBTNode::~isBoredConditionBTNode()
+IsBoredConditionBTNode::~IsBoredConditionBTNode()
 {
 }
 
-void isBoredConditionBTNode::initialize()
+void IsBoredConditionBTNode::initialize()
 {
 }
 
-StatusType isBoredConditionBTNode::process()
+StatusType IsBoredConditionBTNode::process()
 {
-    Dog* currentDog = static_cast<Dog*>(mBlackboard->get("currentDog"));
+    BTState* btState = static_cast<BTState*>(mBlackboard->get(Constants::currentBTState));
 
-    if (currentDog == nullptr)
-    {
-        std::cout << "ERROR::isBoredConditionBTNode: No currentDog found." << std::endl;
-        return StatusType::FAILURE;
-    }
+    // retrieve node state data for this actor
+    auto stateID = std::make_pair(mID, btState->currentDog->getID());
 
-    if (currentDog->getBoredom() > Constants::boredomThreshold)
+    if (btState->currentDog->getBoredom() > Constants::boredomThreshold)
     {
         return StatusType::FAILURE;
     }
@@ -38,11 +35,11 @@ StatusType isBoredConditionBTNode::process()
     return StatusType::SUCCESS;
 }
 
-void isBoredConditionBTNode::terminate()
+void IsBoredConditionBTNode::terminate()
 {
 }
 
-void isBoredConditionBTNode::addNode(std::unique_ptr<BaseBTNode> newNode)
+void IsBoredConditionBTNode::addNode(std::unique_ptr<BaseBTNode> newNode)
 {
     std::cout << "ERROR::isBoredConditionBTNode: A node is being added to a leaf node!" << std::endl;
 }

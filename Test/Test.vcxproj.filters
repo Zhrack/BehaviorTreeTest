@@ -22,6 +22,18 @@
     <Filter Include="Utility">
       <UniqueIdentifier>{b210b882-24f7-49bc-82b3-4fbe1d25e941}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\BT\Conditions">
+      <UniqueIdentifier>{5748420e-e4e6-405d-baed-b50d941306ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\BT\Actions">
+      <UniqueIdentifier>{d7e6996c-177b-4c15-ad60-a1f177a18a5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\BT\Conditions">
+      <UniqueIdentifier>{ac46432d-27ff-4bdb-a829-ad6152ebdc34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\BT\Actions">
+      <UniqueIdentifier>{1d763a5c-f008-4d12-8ee1-f179b17746ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -42,9 +54,6 @@
     <ClInclude Include="Dog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IsHungryConditionBTNode.h">
-      <Filter>Header Files\BT</Filter>
-    </ClInclude>
     <ClInclude Include="Blackboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -55,9 +64,6 @@
       <Filter>Header Files\BT</Filter>
     </ClInclude>
     <ClInclude Include="SequenceBTNode.h">
-      <Filter>Header Files\BT</Filter>
-    </ClInclude>
-    <ClInclude Include="isBoredConditionBTNode.h">
       <Filter>Header Files\BT</Filter>
     </ClInclude>
     <ClInclude Include="BTState.h">
@@ -74,6 +80,15 @@
     </ClInclude>
     <ClInclude Include="RepeaterUntilFailBTNode.h">
       <Filter>Header Files\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="isBoredConditionBTNode.h">
+      <Filter>Header Files\BT\Conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="IsHungryConditionBTNode.h">
+      <Filter>Header Files\BT\Conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="IdleBTNode.h">
+      <Filter>Header Files\BT\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -98,9 +113,6 @@
     <ClCompile Include="Dog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IsHungryConditionBTNode.cpp">
-      <Filter>Source Files\BT</Filter>
-    </ClCompile>
     <ClCompile Include="Blackboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -111,9 +123,6 @@
       <Filter>Utility</Filter>
     </ClCompile>
     <ClCompile Include="SequenceBTNode.cpp">
-      <Filter>Source Files\BT</Filter>
-    </ClCompile>
-    <ClCompile Include="isBoredConditionBTNode.cpp">
       <Filter>Source Files\BT</Filter>
     </ClCompile>
     <ClCompile Include="NodeActorAIState.cpp">
@@ -127,6 +136,15 @@
     </ClCompile>
     <ClCompile Include="RepeaterUntilFailBTNode.cpp">
       <Filter>Source Files\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="IsHungryConditionBTNode.cpp">
+      <Filter>Source Files\BT\Conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="isBoredConditionBTNode.cpp">
+      <Filter>Source Files\BT\Conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="IdleBTNode.cpp">
+      <Filter>Source Files\BT\Actions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

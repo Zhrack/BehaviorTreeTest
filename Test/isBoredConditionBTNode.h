@@ -4,11 +4,11 @@
 #include "BaseBTNode.h"
 
 
-class isBoredConditionBTNode : public BaseBTNode
+class IsBoredConditionBTNode : public BaseBTNode
 {
 public:
-    isBoredConditionBTNode(std::shared_ptr< Blackboard > bb);
-    virtual ~isBoredConditionBTNode();
+    IsBoredConditionBTNode(std::shared_ptr< Blackboard > bb);
+    virtual ~IsBoredConditionBTNode();
 
     // Inherited via BaseBTNode
     /// <summary>
