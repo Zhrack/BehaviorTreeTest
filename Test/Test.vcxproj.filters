@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\BT">
+      <UniqueIdentifier>{69d3ebac-9966-4f6b-ba1d-d2a50b1086e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\BT">
+      <UniqueIdentifier>{19566623-3cd0-4f59-aa7f-60083d2b2007}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -20,6 +26,21 @@
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AIController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BTFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseBTNode.h">
+      <Filter>Header Files\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="CompositeBTNode.h">
+      <Filter>Header Files\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="IsHungryBTNode.h">
+      <Filter>Header Files\BT</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -31,6 +52,21 @@
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AIController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BTFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseBTNode.cpp">
+      <Filter>Source Files\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="CompositeBTNode.cpp">
+      <Filter>Source Files\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="IsHungryBTNode.cpp">
+      <Filter>Source Files\BT</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

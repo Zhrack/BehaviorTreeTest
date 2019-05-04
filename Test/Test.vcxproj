@@ -151,11 +151,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BaseBTNode.h" />
+    <ClInclude Include="BTFactory.h" />
+    <ClInclude Include="AIController.h" />
+    <ClInclude Include="CompositeBTNode.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="IsHungryBTNode.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BaseBTNode.cpp" />
+    <ClCompile Include="BTFactory.cpp" />
+    <ClCompile Include="AIController.cpp" />
+    <ClCompile Include="CompositeBTNode.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="IsHungryBTNode.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
