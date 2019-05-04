@@ -19,6 +19,9 @@
     <Filter Include="Source Files\BT">
       <UniqueIdentifier>{19566623-3cd0-4f59-aa7f-60083d2b2007}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{b210b882-24f7-49bc-82b3-4fbe1d25e941}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -43,6 +46,21 @@
       <Filter>Header Files\BT</Filter>
     </ClInclude>
     <ClInclude Include="Blackboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="isBoredConditionBTNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectorBTNode.h">
+      <Filter>Header Files\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeActorAIState.h">
+      <Filter>Header Files\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceBTNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -72,6 +90,21 @@
       <Filter>Source Files\BT</Filter>
     </ClCompile>
     <ClCompile Include="Blackboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="isBoredConditionBTNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectorBTNode.cpp">
+      <Filter>Source Files\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="Constants.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeActorAIState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceBTNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -17,8 +17,11 @@ void Game::initialize(int numDogs)
 {
     // insert some dogs
     mActors.clear();
-    auto it = mActors.begin();
-    mActors.insert(it, numDogs);
+
+    for (unsigned int i = 0; i < numDogs; ++i)
+    {
+        mActors.push_back(Dog("dog" + std::to_string(i)));
+    }
 }
 
 void Game::loop()
@@ -27,7 +30,12 @@ void Game::loop()
 
     while (!mExit)
     {
-        // TODO: AIController update()
+        // get input from the player...
+
+        // update other subsystems...
+        aiController.update(mActors);
+
+        // render our beautiful dogs...
     }
 
     this->terminate();

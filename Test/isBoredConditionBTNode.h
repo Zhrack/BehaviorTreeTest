@@ -1,18 +1,14 @@
-#ifndef HUNGRY_BT_NODE_H
-#define HUNGRY_BT_NODE_H
+#ifndef BORED_BT_NODE_H
+#define BORED_BT_NODE_H
 
 #include "BaseBTNode.h"
 
 
-/// <summary>
-/// Condition that 
-/// </summary>
-/// <seealso cref="BaseBTNode" />
-class IsHungryConditionBTNode : public BaseBTNode
+class isBoredConditionBTNode : public BaseBTNode
 {
 public:
-    IsHungryConditionBTNode(std::shared_ptr< Blackboard > bb);
-    virtual ~IsHungryConditionBTNode();
+    isBoredConditionBTNode(std::shared_ptr< Blackboard > bb);
+    virtual ~isBoredConditionBTNode();
 
     // Inherited via BaseBTNode
     /// <summary>
@@ -21,14 +17,14 @@ public:
     virtual void initialize() override;
 
     /// <summary>
-    /// Checks the level of hunger of the actor.
+    /// Checks the level of boredom of the actor.
     /// </summary>
     /// <returns>
     /// The finishing status of the node, SUCCESS or FAILURE.
     /// </returns>
     virtual StatusType process() override;
-
     virtual void terminate() override;
+
     /// <summary>
     /// If called it will print an error on std::cout.
     /// </summary>
@@ -36,5 +32,4 @@ public:
     virtual void addNode(std::unique_ptr<BaseBTNode> newNode) override;
 };
 
-
-#endif // !HUNGRY_BT_NODE_H
+#endif // !BORED_BT_NODE_H

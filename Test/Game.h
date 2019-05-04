@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "Dog.h"
+#include "AIController.h"
 
 
 class Game
@@ -28,9 +29,8 @@ private:
     // controls the status of the overral application
     bool mExit;
 
-    // TODO: vectors of Dogs
     std::vector<Dog> mActors;
-    // TODO: instance of AIController
+    AIController aiController;
 };
 
 #endif // !GAME_H

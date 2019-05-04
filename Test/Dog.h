@@ -17,6 +17,7 @@ public:
     std::string getName() const;
     int getHunger() const;
     int getBoredom() const;
+    unsigned int getID() const;
 
     // Setters
     void setHunger(int value);
@@ -24,7 +25,7 @@ public:
 
 private:
     /// <summary>
-    /// The name of the doggo. Also its identifier.
+    /// The name of the doggo.
     /// </summary>
     std::string mName;
     /// <summary>
@@ -35,6 +36,15 @@ private:
     /// The boredom level.
     /// </summary>
     int mBoredom;
+    /// <summary>
+    /// Static data member to generate IDs for the dogs.
+    /// </summary>
+    static unsigned int nextID;
+
+    /// <summary>
+    /// The ID of this dog. Used to store and retrieve data on the BlackBoard.
+    /// </summary>
+    unsigned int mID;
 };
 
 #endif // !DOG_H

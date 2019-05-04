@@ -4,7 +4,9 @@
 #include <memory>
 #include <vector>
 
-enum statusType 
+#include "Blackboard.h"
+
+enum StatusType 
 {
     FAILURE = 0,
     SUCCESS,
@@ -18,7 +20,7 @@ enum statusType
 class BaseBTNode
 {
 public:
-    BaseBTNode();
+    BaseBTNode(std::shared_ptr< Blackboard > bb);
     virtual ~BaseBTNode();
 
     /// <summary>
@@ -30,7 +32,7 @@ public:
     /// Processes this node.
     /// </summary>
     /// <returns>The finishing status of the node.</returns>
-    virtual statusType process() = 0;
+    virtual StatusType process() = 0;
 
     /// <summary>
     /// Perform cleanup duties if necessary.
@@ -42,6 +44,22 @@ public:
     /// </summary>
     /// <param name="newNode">The new node.</param>
     virtual void addNode(std::unique_ptr<BaseBTNode> newNode) = 0;
+
+protected:
+    /// <summary>
+    /// Refcounted reference to the AIController's BlackBoard
+    /// </summary>
+    std::shared_ptr< Blackboard > mBlackboard;
+
+    /// <summary>
+    /// Static data member to generate IDs for the nodes.
+    /// </summary>
+    static unsigned int nextID;
+
+    /// <summary>
+    /// The ID of this node. Used to store and retrieve data on the BlackBoard.
+    /// </summary>
+    unsigned int mID;
 };
 
 

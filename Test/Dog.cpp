@@ -1,11 +1,13 @@
 #include "pch.h"
 #include "Dog.h"
 
+unsigned int Dog::nextID = 0;
 
 Dog::Dog(const std::string& name, int hunger, int boredom) :
     mName(name),
     mHunger(hunger),
-    mBoredom(boredom)
+    mBoredom(boredom),
+    mID(nextID++)
 {
 }
 
@@ -27,6 +29,11 @@ int Dog::getHunger() const
 int Dog::getBoredom() const
 {
     return mBoredom;
+}
+
+unsigned int Dog::getID() const
+{
+    return mID;
 }
 
 void Dog::setHunger(int value)

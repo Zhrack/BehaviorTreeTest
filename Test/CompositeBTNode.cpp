@@ -2,7 +2,8 @@
 #include "CompositeBTNode.h"
 
 
-CompositeBTNode::CompositeBTNode() :
+CompositeBTNode::CompositeBTNode(std::shared_ptr< Blackboard > bb) :
+   BaseBTNode(bb),
     mChildren()
 {
 }
