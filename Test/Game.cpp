@@ -31,7 +31,7 @@ void Game::initialize(unsigned int numDogs)
 
 void Game::loop()
 {
-    this->initialize(1);
+    this->initialize();
 
     while (!mExit)
     {

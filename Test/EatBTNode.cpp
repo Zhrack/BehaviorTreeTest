@@ -33,7 +33,8 @@ StatusType EatBTNode::process()
     std::cout << dog->getName() + " eats! (" << dog->getHunger() << ", " << dog->getBoredom() << ")" << std::endl;
 
     // check for thresholds
-    if (dog->getHunger() < Constants::minHunger)
+    if (dog->getHunger() < Constants::minHunger ||
+        dog->getHunger() > Constants::maxHunger)
     {
         return StatusType::SUCCESS;
     }

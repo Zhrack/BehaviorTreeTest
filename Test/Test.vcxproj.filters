@@ -94,7 +94,7 @@
       <Filter>Header Files\BT\Actions</Filter>
     </ClInclude>
     <ClInclude Include="EatBTNode.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\BT\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -156,7 +156,7 @@
       <Filter>Source Files\BT\Actions</Filter>
     </ClCompile>
     <ClCompile Include="EatBTNode.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\BT\Actions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

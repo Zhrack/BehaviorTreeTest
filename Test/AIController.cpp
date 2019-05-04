@@ -11,6 +11,8 @@
 #include "isBoredConditionBTNode.h"
 #include "IsHungryConditionBTNode.h"
 #include "IdleBTNode.h"
+#include "PlayBTNode.h"
+#include "EatBTNode.h"
 
 AIController::AIController() :
     mBlackBoard(new Blackboard()),
@@ -36,7 +38,7 @@ void AIController::initialize()
     // build behavior tree
     mRootNode.reset(new SelectorBTNode(mBlackBoard));
 
-    // IDLE BRANCH
+    // ------------------- IDLE BRANCH
     std::unique_ptr<SequenceBTNode> idleSequence(new SequenceBTNode(mBlackBoard));
 
     std::unique_ptr<IsBoredConditionBTNode> isBoredIdleCondition(new IsBoredConditionBTNode(mBlackBoard));
@@ -51,8 +53,28 @@ void AIController::initialize()
 
     mRootNode->addNode(std::move(idleSequence));
 
-    // PLAY BRANCH
+    // ------------------- PLAY BRANCH
+    std::unique_ptr<SequenceBTNode> playSequence(new SequenceBTNode(mBlackBoard));
 
+    std::unique_ptr<IsHungryConditionBTNode> isHungryPlayCondition(new IsHungryConditionBTNode(mBlackBoard));
+    
+    std::unique_ptr<PlayBTNode> playAction(new PlayBTNode(mBlackBoard));
+
+    // add to play sequence
+    playSequence->addNode(std::move(isHungryPlayCondition));
+    playSequence->addNode(std::move(playAction));
+
+    mRootNode->addNode(std::move(playSequence));
+
+    // ------------------- EAT BRANCH
+
+    std::unique_ptr<EatBTNode> eatAction(new EatBTNode(mBlackBoard));
+
+    // add to play sequence
+    //playSequence->addNode(std::move(isHungryPlayCondition));
+    //playSequence->addNode(std::move(playAction));
+
+    mRootNode->addNode(std::move(eatAction));
 
 }
 

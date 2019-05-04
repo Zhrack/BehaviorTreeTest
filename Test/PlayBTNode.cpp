@@ -28,7 +28,7 @@ StatusType PlayBTNode::process()
     Dog* dog = btState->currentDog;
 
     // increase boredom and decrease hunger
-    dog->setBoredom(dog->getBoredom() - Constants::boredomStep);
+    dog->setBoredom(dog->getBoredom() - Constants::boredomStep * 2);
     dog->setHunger(dog->getHunger() - Constants::hungerStep * 2); // faster
 
     std::cout << dog->getName() + " plays with the ball! (" << dog->getHunger() << ", " << dog->getBoredom() << ")" << std::endl;
