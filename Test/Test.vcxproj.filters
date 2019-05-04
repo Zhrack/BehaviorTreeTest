@@ -63,11 +63,17 @@
     <ClInclude Include="BTState.h">
       <Filter>Utility</Filter>
     </ClInclude>
-    <ClInclude Include="DecoratorBTNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="NodeActorAIState.h">
       <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="DecoratorBTNode.h">
+      <Filter>Header Files\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="InverterBTNode.h">
+      <Filter>Header Files\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="RepeaterUntilFailBTNode.h">
+      <Filter>Header Files\BT</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -110,11 +116,17 @@
     <ClCompile Include="isBoredConditionBTNode.cpp">
       <Filter>Source Files\BT</Filter>
     </ClCompile>
-    <ClCompile Include="DecoratorBTNode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="NodeActorAIState.cpp">
       <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="DecoratorBTNode.cpp">
+      <Filter>Source Files\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="InverterBTNode.cpp">
+      <Filter>Source Files\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="RepeaterUntilFailBTNode.cpp">
+      <Filter>Source Files\BT</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
