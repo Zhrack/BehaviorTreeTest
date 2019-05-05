@@ -43,7 +43,7 @@ const std::string Constants::currentBTState = std::string("currentBTState");
 /// <summary>
 /// The sleep between steps in milliseconds.
 /// </summary>
-const int Constants::sleepBetweenStepsMilli = 500;
+const int Constants::sleepBetweenStepsMilli = 1000;
 
 /// <summary>
 /// The dog name prefix.

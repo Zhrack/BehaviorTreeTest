@@ -91,6 +91,9 @@ void AIController::update(std::vector<Dog*>& actors)
     BTState* btState = static_cast<BTState*>(mBlackBoard->get(Constants::currentBTState));
     btState->numActors = actors.size();
 
+    std::cout << "---- NEW UPDATE CYCLE ----" << std::endl;
+    std::cout << std::endl;
+
     // run BT for currentDog
     std::string resultText;
     for (auto it = actors.begin(); it != actors.end(); ++it)
@@ -115,6 +118,7 @@ void AIController::update(std::vector<Dog*>& actors)
         }
 
         std::cout << "BT for " << (*it)->getName() << " returns " << resultText << std::endl;
+        std::cout << std::endl;
     }
 }
 

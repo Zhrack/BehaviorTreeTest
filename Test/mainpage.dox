@@ -44,6 +44,8 @@
  *
  * The BaseBTNode class representes both the entire tree and the single node, acting as a base class for the applied (slightly modified) Composite design pattern.
  * The AIController owns a std::unique_ptr to a single instance of this, which acts as the root of the tree.
+ *
+ * Other classes that form the inheritance tre of the BaseBTNode are explained in the following paragraphs.
  * 
  * \subsection subsec2 The Behavior Tree
  *
@@ -65,7 +67,24 @@
  * 
  * I could have used it, repeating a sequence of IsHungry -> Eat activity, but frankly the idea of a dog eating until full seems more realistic, instead of a dog that eats only to the smaller hungry threshold!
  *
+ * Other classes are the composite nodes: SelectorBTNode and SequenceBTNode with the common CompositeBTNode.
  *
- * 
+ * The decorator nodes: InverterBTNode and RepeaterUntilFailBTNode with the common DecoratorBTNode.
+ *
+ * The condition nodes: IsBoredConditionBTNode and IsHungryConditionBTNode.
+ *
+ * The action nodes: IdleBTNode, PlayBTNode and EatBTNode.
+ *
+ *
+ * \subsection subsec3 Problems during the development
+ *
+ * I didn't have many problems implementing this, the test assignment was clear and development has been smooth.
+ *
+ * My main problem has been with designing the test tree itself, since I wanted a tree which not only simulated a dog as specified, but also a tree that showed as much as possible the RUNNING state management and looped clearly through all the branches cyclically.
+ *
+ * It seems that I succeded, since the dogs continuously explore all branches, but I wanted to explain this choice.
+ *
+ * \subsection subsec4 Conclusion
+ * Thanks for reading this and have a good day!
  *
  */
