@@ -28,10 +28,10 @@ StatusType IsHungryConditionBTNode::process()
 
     if (btState->currentDog->getEnergy() < Constants::energyThreshold)
     {
-        return StatusType::FAILURE;
+        return StatusType::SUCCESS;
     }
 
-    return StatusType::SUCCESS;
+    return StatusType::FAILURE;
 }
 
 void IsHungryConditionBTNode::terminate()

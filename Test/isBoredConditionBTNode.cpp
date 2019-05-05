@@ -29,10 +29,10 @@ StatusType IsBoredConditionBTNode::process()
 
     if (btState->currentDog->getBoredom() > Constants::boredomThreshold)
     {
-        return StatusType::FAILURE;
+        return StatusType::SUCCESS;
     }
 
-    return StatusType::SUCCESS;
+    return StatusType::FAILURE;
 }
 
 void IsBoredConditionBTNode::terminate()

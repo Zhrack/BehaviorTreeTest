@@ -41,14 +41,21 @@ void AIController::initialize()
     // ------------------- IDLE BRANCH
     std::unique_ptr<SequenceBTNode> idleSequence(new SequenceBTNode(mBlackBoard));
 
+    std::unique_ptr<InverterBTNode> isHungryIdleInverterDecorator(new InverterBTNode(mBlackBoard));
+    std::unique_ptr<InverterBTNode> isBoredIdleInverterDecorator(new InverterBTNode(mBlackBoard));
+
     std::unique_ptr<IsBoredConditionBTNode> isBoredIdleCondition(new IsBoredConditionBTNode(mBlackBoard));
     std::unique_ptr<IsHungryConditionBTNode> isHungryIdleCondition(new IsHungryConditionBTNode(mBlackBoard));
 
     std::unique_ptr<IdleBTNode> idleAction(new IdleBTNode(mBlackBoard));
 
+    // add to inverters
+    isHungryIdleInverterDecorator->addNode(std::move(isHungryIdleCondition));
+    isBoredIdleInverterDecorator->addNode(std::move(isBoredIdleCondition));
+
     // add to idle sequence
-    idleSequence->addNode(std::move(isHungryIdleCondition));
-    idleSequence->addNode(std::move(isBoredIdleCondition));
+    idleSequence->addNode(std::move(isHungryIdleInverterDecorator));
+    idleSequence->addNode(std::move(isBoredIdleInverterDecorator));
     idleSequence->addNode(std::move(idleAction));
 
     mRootNode->addNode(std::move(idleSequence));
@@ -56,12 +63,17 @@ void AIController::initialize()
     // ------------------- PLAY BRANCH
     std::unique_ptr<SequenceBTNode> playSequence(new SequenceBTNode(mBlackBoard));
 
+    std::unique_ptr<InverterBTNode> isHungryPlayInverterDecorator(new InverterBTNode(mBlackBoard));
+
     std::unique_ptr<IsHungryConditionBTNode> isHungryPlayCondition(new IsHungryConditionBTNode(mBlackBoard));
     
     std::unique_ptr<PlayBTNode> playAction(new PlayBTNode(mBlackBoard));
 
+    // add to inverters
+    isHungryPlayInverterDecorator->addNode(std::move(isHungryPlayCondition));
+
     // add to play sequence
-    playSequence->addNode(std::move(isHungryPlayCondition));
+    playSequence->addNode(std::move(isHungryPlayInverterDecorator));
     playSequence->addNode(std::move(playAction));
 
     mRootNode->addNode(std::move(playSequence));
