@@ -30,7 +30,7 @@ StatusType EatBTNode::process()
     StatusType result = StatusType::RUNNING;
 
     // increase boredom and decrease hunger
-    dog->setEnergy(dog->getEnergy() + Constants::hungerStep);
+    dog->setEnergy(dog->getEnergy() + Constants::energyStep);
 
     // check for thresholds
     if (dog->getEnergy() < Constants::minEnergy)

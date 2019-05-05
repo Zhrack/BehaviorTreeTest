@@ -26,7 +26,7 @@ StatusType IsHungryConditionBTNode::process()
     // retrieve node state data for this actor
     auto stateID = std::make_pair(mID, btState->currentDog->getID());
 
-    if (btState->currentDog->getEnergy() < Constants::hungerThreshold)
+    if (btState->currentDog->getEnergy() < Constants::energyThreshold)
     {
         return StatusType::FAILURE;
     }

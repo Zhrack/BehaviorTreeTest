@@ -7,8 +7,8 @@ struct Constants
 {
     static const int minEnergy;
     static const int maxEnergy;
-    static const int hungerThreshold;
-    static const int hungerStep;
+    static const int energyThreshold;
+    static const int energyStep;
 
     static const int minBoredom;
     static const int maxBoredom;
@@ -21,6 +21,7 @@ struct Constants
     static const int sleepBetweenStepsMilli;
     static const std::string dogNamePrefix;
     static const int numDogs;
+    static const bool randomInitialStates;
 };
 
 #endif // !CONSTANTS_H

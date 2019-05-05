@@ -2,18 +2,27 @@
  *
  * \section intro_sec Introduction
  *
- * First of all, thanks for this experience. This was my first time implementing such a system and I must say that it has been a funny project.
- * 
+ * First of all, thanks for this experience. This was my first time implementing such a system and I must say that it has been a very funny project. Also, it seems to work! :)
  *
+ * I took the liberty of generating this documentation using Doxygen, to enable detailed explanation of choices throughout the code, in case they become a necessity.
+ * This page should be sufficient for a quick explanation though. 
+ * 
  *
  * \section setup_sec Project setup
  *
  * The project is a VS2017 solution without libraries. The only dependency is the STL library.
+ * So it should be possible to compile the solution as is, without more configuration.
+ *
  *
  * \section overview_sec Overview
  *
- * The test is structured in a few main sections.
-
+ * The test is structured in a few main sections, explained in the following paragraphs.
+ *
+ * I tried to take a practical approach implementing what was needed to work, but I tried to implemnent the system as if it was inside a complete game. 
+ * So I created a Game class and a basic game loop. 
+ * Every update step, the AIController performs a BT cycle for every dog, saving on the BlackBoard running states if they arises. 
+ * The Action nodes implemented (Idle, Play, Eat) return RUNNING until conditions are met, as requested by the test.
+ *
  * \subsection subsec1 High level classes
  *
  * The Game class is the highest level one, which encapsulates all the application. It also simulates a complete game, structured with a update loop. 
@@ -21,7 +30,20 @@
  *
  * The AIController class manages all the AI work. It stores the shared instance of the BlackBoard and starts the Behavior Tree update cycle for every actor passed by the Game class.
  * 
- *
- *
+ * The BlackBoard class is the storage space for mutable data which the Behavior Tree needs to work. 
+ * Every node can store stateful data for a given actor using the NodeActorAIState struct. 
+ * At the moment is mainly used to store the running child index for composite nodes, but is ready for more is necessary. 
  * 
+ * The BTState class instead is a small class to store stateful data which is true at the whole-tree level. It is used to indicate mainly the current Dog instance, but ready for more.
+ *
+ * The Dog class is self explanatory, stores Dog specific data, such as a name, energy and boredom, plus some setters and getters.
+ * Initial values can be randomized if necessary, all settings are in the Constants source file. 
+ * Since the compile time is small and I'm forbidden from using external libraries, I haven't implemented a read from file for it.
+ * 
+ * \subsection subsec2 The Behavior Tree
+ *
+ * The tree is structured as shown:
+ * \image html tree.png
+ *
+ *
  */

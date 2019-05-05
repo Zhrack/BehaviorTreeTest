@@ -31,7 +31,7 @@ StatusType PlayBTNode::process()
 
     // increase boredom and decrease hunger
     dog->setBoredom(dog->getBoredom() - Constants::boredomStep * 2);
-    dog->setEnergy(dog->getEnergy() - Constants::hungerStep * 2); // faster
+    dog->setEnergy(dog->getEnergy() - Constants::energyStep * 2); // faster
 
 
     // check for thresholds
@@ -40,7 +40,7 @@ StatusType PlayBTNode::process()
         dog->setBoredom(Constants::minBoredom);
         result = StatusType::SUCCESS;
     }
-    else if (dog->getEnergy() < Constants::minEnergy)
+    if (dog->getEnergy() < Constants::minEnergy)
     {
         dog->setEnergy(Constants::minEnergy);
         result = StatusType::SUCCESS;

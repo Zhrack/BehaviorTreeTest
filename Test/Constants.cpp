@@ -1,29 +1,61 @@
  
 #include "Constants.h"
 
+/// <summary>
+/// The minimum energy for dogs.
+/// </summary>
 const int Constants::minEnergy = 0;
+/// <summary>
+/// The maximum energy for dogs.
+/// </summary>
 const int Constants::maxEnergy = 100;
-const int Constants::hungerThreshold = 20;
-const int Constants::hungerStep = 2;
+/// <summary>
+/// The energy threshold for condition nodes.
+/// </summary>
+const int Constants::energyThreshold = 20;
+/// <summary>
+/// The energy step by which energy level is modified.
+/// </summary>
+const int Constants::energyStep = 4;
 
+/// <summary>
+/// The minimum boredom for dogs.
+/// </summary>
 const int Constants::minBoredom = 0;
+/// <summary>
+/// The maximum boredom for dogs.
+/// </summary>
 const int Constants::maxBoredom = 100;
+/// <summary>
+/// The boredom thresholdfor condition nodes.
+/// </summary>
 const int Constants::boredomThreshold = 80;
-const int Constants::boredomStep = 2;
+/// <summary>
+/// The boredom step by which boredom level is modified.
+/// </summary>
+const int Constants::boredomStep = 4;
 
+/// <summary>
+/// The current bt state keyword on the BlackBoard.
+/// </summary>
 const std::string Constants::currentBTState = std::string("currentBTState");
 
 /// <summary>
-/// The sleep between steps milli{CC2D43FA-BBC4-448A-9D0B-7B57ADF2655C}
+/// The sleep between steps in milliseconds.
 /// </summary>
-const int Constants::sleepBetweenStepsMilli = 200;
+const int Constants::sleepBetweenStepsMilli = 500;
 
 /// <summary>
-/// The dog name prefix{CC2D43FA-BBC4-448A-9D0B-7B57ADF2655C}
+/// The dog name prefix.
 /// </summary>
 const std::string Constants::dogNamePrefix = "DOG_";
 
 /// <summary>
-/// The number dogs{CC2D43FA-BBC4-448A-9D0B-7B57ADF2655C}
+/// The number dogs to be simulated.
 /// </summary>
-const int Constants::numDogs = 5;
+const int Constants::numDogs = 1;
+
+/// <summary>
+/// Whether starting values for dogs are random or start maxed out.
+/// </summary>
+const bool Constants::randomInitialStates = true;
