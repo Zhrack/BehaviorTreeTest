@@ -18,7 +18,7 @@
  *
  * The test is structured in a few main sections, explained in the following paragraphs.
  *
- * I tried to take a practical approach implementing what was needed to work, but I tried to implemnent the system as if it was inside a complete game. 
+ * I tried to take a practical approach implementing what was needed to work, but I tried to implement the system as if it was inside a complete game. 
  * So I created a Game class and a basic game loop. 
  * Every update step, the AIController performs a BT cycle for every dog, saving on the BlackBoard running states if they arises. 
  * The Action nodes implemented (Idle, Play, Eat) return RUNNING until conditions are met, as requested by the test.
@@ -33,17 +33,25 @@
  * The BlackBoard class is the storage space for mutable data which the Behavior Tree needs to work. 
  * Every node can store stateful data for a given actor using the NodeActorAIState struct. 
  * At the moment is mainly used to store the running child index for composite nodes, but is ready for more is necessary. 
+ * Through this architecture a Flyweight pattern is achieved, with the common data (the tree and their node functionalities) and instance data (the state data for (node, actor) pairs plus the BTState instance) split.
  * 
- * The BTState class instead is a small class to store stateful data which is true at the whole-tree level. It is used to indicate mainly the current Dog instance, but ready for more.
+ * The BTState class instead is a small class to store stateful data at the whole-tree level. It is used to indicate mainly the current Dog instance, but ready for more.
  *
  * The Dog class is self explanatory, stores Dog specific data, such as a name, energy and boredom, plus some setters and getters.
  * Initial values can be randomized if necessary, all settings are in the Constants source file. 
  * Since the compile time is small and I'm forbidden from using external libraries, I haven't implemented a read from file for it.
+ *
+ * The BaseBTNode class representes both the entire tree and the single node, acting as a base class for the Composite design pattern applied.
+ * The AIController owns a std::unique_ptr to a single instance of this, which acts as the root of the tree.
  * 
  * \subsection subsec2 The Behavior Tree
  *
  * The tree is structured as shown:
  * \image html tree.png
+ *
+ * Every node has a initialize, process and terminate function. Currently both initialize and terminate are not used by anyone, since most of the state data have to be sourced every cycle.
+ * The structure is however ready for more complex trees and other types of nodes.
+ * 
  *
  *
  */
