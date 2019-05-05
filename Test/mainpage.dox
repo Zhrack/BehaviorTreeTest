@@ -2,7 +2,8 @@
  *
  * \section intro_sec Introduction
  *
- * First of all, thanks for this experience. This was my first time implementing such a system and I must say that it has been a very funny project. Also, it seems to work! :)
+ * Hi,
+ * the following is an overview of the technical assessment.
  *
  * I took the liberty of generating this documentation using Doxygen, to enable detailed explanation of choices throughout the code, in case they become a necessity.
  * This page should be sufficient for a quick explanation though. 
@@ -85,6 +86,11 @@
  * It seems that I succeded, since the dogs continuously explore all branches, but I wanted to explain this choice.
  *
  * \subsection subsec4 Conclusion
+ *
+ * Thanks for this experience. This was my first time implementing such a system and I must say that it has been a very funny project. Also, it seems to work! :)
+ *
  * Thanks for reading this and have a good day!
+ *
+ * Davide Marcoccio
  *
  */
