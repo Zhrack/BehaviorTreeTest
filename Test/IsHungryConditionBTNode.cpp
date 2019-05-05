@@ -23,9 +23,6 @@ StatusType IsHungryConditionBTNode::process()
 {
     BTState* btState = static_cast<BTState*>(mBlackboard->get(Constants::currentBTState));
 
-    // retrieve node state data for this actor
-    auto stateID = std::make_pair(mID, btState->currentDog->getID());
-
     if (btState->currentDog->getEnergy() < Constants::energyThreshold)
     {
         return StatusType::SUCCESS;

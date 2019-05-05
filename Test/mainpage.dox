@@ -13,6 +13,7 @@
  * The project is a VS2017 solution without libraries. The only dependency is the STL library.
  * So it should be possible to compile the solution as is, without more configuration.
  *
+ * If run immediatly, will be simulated 5 dogs with randomized initial values. Every update step is paused for 0.5 seconds.
  *
  * \section overview_sec Overview
  *
@@ -41,17 +42,30 @@
  * Initial values can be randomized if necessary, all settings are in the Constants source file. 
  * Since the compile time is small and I'm forbidden from using external libraries, I haven't implemented a read from file for it.
  *
- * The BaseBTNode class representes both the entire tree and the single node, acting as a base class for the Composite design pattern applied.
+ * The BaseBTNode class representes both the entire tree and the single node, acting as a base class for the applied (slightly modified) Composite design pattern.
  * The AIController owns a std::unique_ptr to a single instance of this, which acts as the root of the tree.
  * 
  * \subsection subsec2 The Behavior Tree
  *
  * The tree is structured as shown:
+ *
  * \image html tree.png
+ *
+ *
+ * Probably there are better ways to build it, I don't know. It was my first time designing with a BT, but it seems to work as intended.
  *
  * Every node has a initialize, process and terminate function. Currently both initialize and terminate are not used by anyone, since most of the state data have to be sourced every cycle.
  * The structure is however ready for more complex trees and other types of nodes.
  * 
+ * Following is the class inheritance diagram of the various nodes.
  *
+ * \image html nodes_hierarchy.png
+ *
+ * As shown, the RepeaterUntilFailBTNode node is implemented, but not used in the current tree. 
+ * 
+ * I could have used it, repeating a sequence of IsHungry -> Eat activity, but frankly the idea of a dog eating until full seems more realistic, instead of a dog that eats only to the smaller hungry threshold!
+ *
+ *
+ * 
  *
  */

@@ -36,7 +36,7 @@ const int Constants::boredomThreshold = 80;
 const int Constants::boredomStep = 4;
 
 /// <summary>
-/// The current bt state keyword on the BlackBoard.
+/// The current bt state key on the BlackBoard.
 /// </summary>
 const std::string Constants::currentBTState = std::string("currentBTState");
 
@@ -53,7 +53,7 @@ const std::string Constants::dogNamePrefix = "DOG_";
 /// <summary>
 /// The number dogs to be simulated.
 /// </summary>
-const int Constants::numDogs = 1;
+const int Constants::numDogs = 5;
 
 /// <summary>
 /// Whether starting values for dogs are random or start maxed out.
