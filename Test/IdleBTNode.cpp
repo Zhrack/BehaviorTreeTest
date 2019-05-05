@@ -31,9 +31,9 @@ StatusType IdleBTNode::process()
 
     StatusType result = StatusType::RUNNING;
 
-    // increase boredom and decrease hunger
-    dog->setBoredom(dog->getBoredom() + Constants::boredomStep);
-    dog->setEnergy(dog->getEnergy() - Constants::energyStep);
+    // increase boredom and decrease hunger SLIGHTLY
+    dog->setBoredom(dog->getBoredom() + static_cast<int>(Constants::boredomStep / 2));
+    dog->setEnergy(dog->getEnergy() - static_cast<int>(Constants::energyStep / 2));
     
     // check for thresholds
     if (dog->getBoredom() > Constants::maxBoredom)

@@ -44,7 +44,7 @@ StatusType EatBTNode::process()
         result =  StatusType::SUCCESS;
     }
 
-    std::cout << dog->getName() + " eats! (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
+    std::cout << dog->getName() + " EATS! (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
 
     return result;
 }

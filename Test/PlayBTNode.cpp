@@ -29,7 +29,7 @@ StatusType PlayBTNode::process()
 
     StatusType result = StatusType::RUNNING;
 
-    // increase boredom and decrease hunger
+    // decrease boredom and decrease hunger
     dog->setBoredom(dog->getBoredom() - Constants::boredomStep * 2);
     dog->setEnergy(dog->getEnergy() - Constants::energyStep * 2); // faster
 
@@ -46,7 +46,7 @@ StatusType PlayBTNode::process()
         result = StatusType::SUCCESS;
     }
 
-    std::cout << dog->getName() + " plays with the ball! (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
+    std::cout << dog->getName() + " PLAYS with the ball! (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
 
     return result;
 }
