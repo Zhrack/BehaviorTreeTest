@@ -25,11 +25,10 @@ StatusType InverterBTNode::process()
     case FAILURE:
         return StatusType::SUCCESS;
         break;
-    case SUCCESS:
-        return StatusType::FAILURE;
-        break;
     case RUNNING:
+    case SUCCESS:
     default:
+        return StatusType::FAILURE;
         break;
     }
 }

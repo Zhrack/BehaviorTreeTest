@@ -13,7 +13,7 @@
  * The project is a VS2017 solution without libraries. The only dependency is the STL library.
  * So it should be possible to compile the solution as is, without more configuration.
  *
- * If run immediatly, will be simulated 5 dogs with randomized initial values. Every update step is paused for 1 second.
+ * If run immediatly, will be simulated 5 dogs with randomized initial values. Every update step is paused for 0.7 seconds.
  *
  * \section overview_sec Overview
  *

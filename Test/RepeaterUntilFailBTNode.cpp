@@ -27,9 +27,8 @@ StatusType RepeaterUntilFailBTNode::process()
         break;
     case SUCCESS:
     case RUNNING:
-        return StatusType::RUNNING;
-        break;
     default:
+        return StatusType::RUNNING;
         break;
     }
 }
