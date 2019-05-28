@@ -2,6 +2,7 @@
 #define BLACKBOARD_H
 
 #include <unordered_map>
+#include <memory>
 
 /// <summary>
 /// A blackboard to store key-values pairs. 
@@ -46,7 +47,7 @@ private:
     /// </summary>
     std::unordered_map<
         std::string, 
-        void*> mData;
+        std::unique_ptr<void*> > mData;
 };
 
 #endif // !BLACKBOARD_H

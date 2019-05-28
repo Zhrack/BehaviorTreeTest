@@ -36,7 +36,7 @@ private:
     /// <summary>
     /// The blackboard that supports stateful data for the BT.
     /// </summary>
-    std::shared_ptr< Blackboard > mBlackBoard;
+    Blackboard mBlackBoard;
     /// <summary>
     /// The root node of the Behavior Tree.
     /// </summary>

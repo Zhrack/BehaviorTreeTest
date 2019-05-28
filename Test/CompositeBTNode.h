@@ -13,15 +13,13 @@
 class CompositeBTNode : public BaseBTNode
 {
 public:
-    CompositeBTNode(std::shared_ptr< Blackboard > bb);
+    CompositeBTNode();
     virtual ~CompositeBTNode();
 
     // Inherited via BaseBTNode
-    virtual void initialize() = 0;
-    virtual StatusType process() = 0;
-    virtual void terminate() = 0;
+    virtual StatusType process(Blackboard& blackBoard) = 0;
 
-    virtual void addNode(std::unique_ptr<BaseBTNode> newNode) override;
+    virtual void addNode(BaseBTNode* newNode) override;
 
 protected:
     std::vector< std::unique_ptr<BaseBTNode> > mChildren;

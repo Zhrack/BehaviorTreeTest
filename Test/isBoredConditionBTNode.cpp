@@ -6,8 +6,8 @@
 
 #include <iostream>
 
-IsBoredConditionBTNode::IsBoredConditionBTNode(std::shared_ptr< Blackboard > bb) :
-    BaseBTNode(bb)
+IsBoredConditionBTNode::IsBoredConditionBTNode() :
+    LeafErrorBTNode()
 {
 }
 
@@ -16,13 +16,9 @@ IsBoredConditionBTNode::~IsBoredConditionBTNode()
 {
 }
 
-void IsBoredConditionBTNode::initialize()
+StatusType IsBoredConditionBTNode::process(Blackboard& blackBoard)
 {
-}
-
-StatusType IsBoredConditionBTNode::process()
-{
-    BTState* btState = static_cast<BTState*>(mBlackboard->get(Constants::currentBTState));
+    BTState* btState = static_cast<BTState*>(blackBoard.get(Constants::currentBTState));
 
     if (btState->currentDog->getBoredom() > Constants::boredomThreshold)
     {
@@ -30,13 +26,4 @@ StatusType IsBoredConditionBTNode::process()
     }
 
     return StatusType::FAILURE;
-}
-
-void IsBoredConditionBTNode::terminate()
-{
-}
-
-void IsBoredConditionBTNode::addNode(std::unique_ptr<BaseBTNode> newNode)
-{
-    std::cout << "ERROR::isBoredConditionBTNode: A node is being added to a leaf node!" << std::endl;
 }

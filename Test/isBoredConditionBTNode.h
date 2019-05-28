@@ -1,24 +1,20 @@
 #ifndef BORED_BT_NODE_H
 #define BORED_BT_NODE_H
 
-#include "BaseBTNode.h"
+#include "LeafErrorBTNode.h"
 
 
 /// <summary>
 /// Condition that checks the boredom status of the Dog.
 /// </summary>
 /// <seealso cref="BaseBTNode" />
-class IsBoredConditionBTNode : public BaseBTNode
+class IsBoredConditionBTNode : public LeafErrorBTNode
 {
 public:
-    IsBoredConditionBTNode(std::shared_ptr< Blackboard > bb);
+    IsBoredConditionBTNode();
     virtual ~IsBoredConditionBTNode();
 
     // Inherited via BaseBTNode
-    /// <summary>
-    /// Perform some setup work before calling process().
-    /// </summary>
-    virtual void initialize() override;
 
     /// <summary>
     /// Checks the level of boredom of the actor.
@@ -26,14 +22,7 @@ public:
     /// <returns>
     /// The finishing status of the node, SUCCESS or FAILURE.
     /// </returns>
-    virtual StatusType process() override;
-    virtual void terminate() override;
-
-    /// <summary>
-    /// If called it will print an error on std::cout.
-    /// </summary>
-    /// <param name="newNode">.</param>
-    virtual void addNode(std::unique_ptr<BaseBTNode> newNode) override;
+    virtual StatusType process(Blackboard& blackBoard) override;
 };
 
 #endif // !BORED_BT_NODE_H

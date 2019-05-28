@@ -20,14 +20,14 @@ void Blackboard::addValue(const std::string& key, void * value)
     {
         this->removeValue(key);
     }
-    mData.insert({ key, value });
+    mData.insert({ key, std::make_unique<void*>(value) });
 }
 
 void* Blackboard::get(const std::string& key)
 {
     if (mData.count(key) > 0)
     {
-        return mData[key];
+        return mData[key].get();
     }
 
     return nullptr;
@@ -47,11 +47,6 @@ void Blackboard::cleanAllByNodeID(unsigned int nodeID)
     BTState* btState = static_cast<BTState*>(this->get(Constants::currentBTState));
     for (unsigned int i = 0; i < btState->numActors; ++i)
     {
-        auto x = this->get(std::to_string(nodeID) + "_" + std::to_string(i));
-        if (x != nullptr)
-        {
-            delete x;
-            x = nullptr;
-        }
+        this->removeValue(std::to_string(nodeID) + "_" + std::to_string(i));
     }
 }

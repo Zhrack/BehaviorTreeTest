@@ -27,8 +27,8 @@ void Game::initialize(unsigned int numDogs)
     // I know, I know, random_device and Marsenne Twister are overkill. I like overkill sometimes... :)
     std::random_device rd;
     std::mt19937 mt(rd());
-    std::uniform_int_distribution<int> distEnergy(Constants::minEnergy, std::nextafter(Constants::maxEnergy, INT_MAX));
-    std::uniform_int_distribution<int> distBoredom(Constants::minBoredom, std::nextafter(Constants::maxBoredom, INT_MAX));
+    std::uniform_int_distribution<int> distEnergy(Constants::minEnergy, static_cast<int>(std::nextafter(Constants::maxEnergy, INT_MAX)));
+    std::uniform_int_distribution<int> distBoredom(Constants::minBoredom, static_cast<int>(std::nextafter(Constants::maxBoredom, INT_MAX)));
 
     for (unsigned int i = 0; i < numDogs; ++i)
     {
@@ -77,7 +77,6 @@ void Game::terminate()
     for (auto a : mActors)
     {
         delete a;
-        a = nullptr;
     }
     mActors.clear();
 }

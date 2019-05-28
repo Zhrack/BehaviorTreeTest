@@ -11,13 +11,11 @@
 class RepeaterUntilFailBTNode : public DecoratorBTNode
 {
 public:
-    RepeaterUntilFailBTNode(std::shared_ptr< Blackboard > bb);
+    RepeaterUntilFailBTNode();
     virtual ~RepeaterUntilFailBTNode();
 
     // Inherited via DecoratorBTNode
-    virtual void initialize() override;
-    virtual StatusType process() override;
-    virtual void terminate() override;
+    virtual StatusType process(Blackboard& blackBoard) override;
 };
 
 #endif // !REPEATER_UNTIL_FAIL_BT_NODE_H

@@ -15,81 +15,71 @@
 #include "EatBTNode.h"
 
 AIController::AIController() :
-    mBlackBoard(new Blackboard()),
+    mBlackBoard(),
     mRootNode(nullptr)
 {
-    mBlackBoard->addValue(Constants::currentBTState, new BTState());
 }
 
 
 AIController::~AIController()
 {
-    BTState* state = static_cast<BTState*>(mBlackBoard->get(Constants::currentBTState));
+    BTState* state = static_cast<BTState*>(mBlackBoard.get(Constants::currentBTState));
     if (state != nullptr)
     {
         delete state;
         state = nullptr;
-        mBlackBoard->removeValue(Constants::currentBTState);
+        mBlackBoard.removeValue(Constants::currentBTState);
     }
 }
 
 void AIController::initialize()
 {
+
+    mBlackBoard.addValue(Constants::currentBTState, new BTState());
     // build behavior tree
-    mRootNode.reset(new SelectorBTNode(mBlackBoard));
+    mRootNode.reset(new SelectorBTNode());
 
     // ------------------- IDLE BRANCH
-    std::unique_ptr<SequenceBTNode> idleSequence(new SequenceBTNode(mBlackBoard));
+    SequenceBTNode* idleSequence = new SequenceBTNode();
 
-    std::unique_ptr<InverterBTNode> isHungryIdleInverterDecorator(new InverterBTNode(mBlackBoard));
-    std::unique_ptr<InverterBTNode> isBoredIdleInverterDecorator(new InverterBTNode(mBlackBoard));
-
-    std::unique_ptr<IsBoredConditionBTNode> isBoredIdleCondition(new IsBoredConditionBTNode(mBlackBoard));
-    std::unique_ptr<IsHungryConditionBTNode> isHungryIdleCondition(new IsHungryConditionBTNode(mBlackBoard));
-
-    std::unique_ptr<IdleBTNode> idleAction(new IdleBTNode(mBlackBoard));
+    InverterBTNode* isHungryIdleInverterDecorator = new InverterBTNode();
+    InverterBTNode* isBoredIdleInverterDecorator = new InverterBTNode();
 
     // add to inverters
-    isHungryIdleInverterDecorator->addNode(std::move(isHungryIdleCondition));
-    isBoredIdleInverterDecorator->addNode(std::move(isBoredIdleCondition));
+    isHungryIdleInverterDecorator->addNode(new IsHungryConditionBTNode());
+    isBoredIdleInverterDecorator->addNode(new IsBoredConditionBTNode());
 
     // add to idle sequence
-    idleSequence->addNode(std::move(isHungryIdleInverterDecorator));
-    idleSequence->addNode(std::move(isBoredIdleInverterDecorator));
-    idleSequence->addNode(std::move(idleAction));
+    idleSequence->addNode(isHungryIdleInverterDecorator);
+    idleSequence->addNode(isBoredIdleInverterDecorator);
+    idleSequence->addNode(new IdleBTNode());
 
-    mRootNode->addNode(std::move(idleSequence));
+    mRootNode->addNode(idleSequence);
 
     // ------------------- PLAY BRANCH
-    std::unique_ptr<SequenceBTNode> playSequence(new SequenceBTNode(mBlackBoard));
+    SequenceBTNode* playSequence = new SequenceBTNode();
 
-    std::unique_ptr<InverterBTNode> isHungryPlayInverterDecorator(new InverterBTNode(mBlackBoard));
-
-    std::unique_ptr<IsHungryConditionBTNode> isHungryPlayCondition(new IsHungryConditionBTNode(mBlackBoard));
-    
-    std::unique_ptr<PlayBTNode> playAction(new PlayBTNode(mBlackBoard));
+    InverterBTNode* isHungryPlayInverterDecorator = new InverterBTNode();
 
     // add to inverters
-    isHungryPlayInverterDecorator->addNode(std::move(isHungryPlayCondition));
+    isHungryPlayInverterDecorator->addNode(new IsHungryConditionBTNode());
 
     // add to play sequence
-    playSequence->addNode(std::move(isHungryPlayInverterDecorator));
-    playSequence->addNode(std::move(playAction));
+    playSequence->addNode(isHungryPlayInverterDecorator);
+    playSequence->addNode(new PlayBTNode());
 
-    mRootNode->addNode(std::move(playSequence));
+    mRootNode->addNode(playSequence);
 
     // ------------------- EAT BRANCH
 
-    std::unique_ptr<EatBTNode> eatAction(new EatBTNode(mBlackBoard));
-
-    mRootNode->addNode(std::move(eatAction));
+    mRootNode->addNode(new EatBTNode());
 
 }
 
 void AIController::update(std::vector<Dog*>& actors)
 {
-    BTState* btState = static_cast<BTState*>(mBlackBoard->get(Constants::currentBTState));
-    btState->numActors = actors.size();
+    BTState* btState = static_cast<BTState*>(mBlackBoard.get(Constants::currentBTState));
+    btState->numActors = static_cast<unsigned int>(actors.size());
 
     std::cout << "---- NEW UPDATE CYCLE ----" << std::endl;
     std::cout << std::endl;
@@ -100,7 +90,7 @@ void AIController::update(std::vector<Dog*>& actors)
     {
         // update currentDog value
         btState->currentDog = *it;
-        auto result = mRootNode->process();
+        auto result = mRootNode->process(mBlackBoard);
 
         switch (result)
         {

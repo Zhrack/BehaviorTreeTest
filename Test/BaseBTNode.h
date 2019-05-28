@@ -23,37 +23,22 @@ enum StatusType
 class BaseBTNode
 {
 public:
-    BaseBTNode(std::shared_ptr< Blackboard > bb);
+    BaseBTNode();
     virtual ~BaseBTNode();
-
-    /// <summary>
-    /// Perform some setup work before calling process().
-    /// </summary>
-    virtual void initialize() = 0;
 
     /// <summary>
     /// Processes this node.
     /// </summary>
     /// <returns>The finishing status of the node.</returns>
-    virtual StatusType process() = 0;
-
-    /// <summary>
-    /// Perform cleanup duties if necessary.
-    /// </summary>
-    virtual void terminate() = 0;
+    virtual StatusType process(Blackboard& blackBoard) = 0;
 
     /// <summary>
     /// Adds the node to children list.
     /// </summary>
     /// <param name="newNode">The new node.</param>
-    virtual void addNode(std::unique_ptr<BaseBTNode> newNode) = 0;
+    virtual void addNode(BaseBTNode* newNode) = 0;
 
 protected:
-    /// <summary>
-    /// Refcounted reference to the AIController's BlackBoard
-    /// </summary>
-    std::shared_ptr< Blackboard > mBlackboard;
-
     /// <summary>
     /// Static data member to generate IDs for the nodes.
     /// </summary>

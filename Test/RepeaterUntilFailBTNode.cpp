@@ -2,8 +2,8 @@
 #include "RepeaterUntilFailBTNode.h"
 
 
-RepeaterUntilFailBTNode::RepeaterUntilFailBTNode(std::shared_ptr< Blackboard > bb) :
-    DecoratorBTNode(bb)
+RepeaterUntilFailBTNode::RepeaterUntilFailBTNode() :
+    DecoratorBTNode()
 {
 }
 
@@ -12,13 +12,9 @@ RepeaterUntilFailBTNode::~RepeaterUntilFailBTNode()
 {
 }
 
-void RepeaterUntilFailBTNode::initialize()
+StatusType RepeaterUntilFailBTNode::process(Blackboard& blackBoard)
 {
-}
-
-StatusType RepeaterUntilFailBTNode::process()
-{
-    auto result = mChild->process();
+    auto result = mChild->process(blackBoard);
 
     switch (result)
     {
@@ -33,6 +29,3 @@ StatusType RepeaterUntilFailBTNode::process()
     }
 }
 
-void RepeaterUntilFailBTNode::terminate()
-{
-}

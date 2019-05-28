@@ -9,8 +9,8 @@
 #include <string>
 #include <iostream>
 
-SequenceBTNode::SequenceBTNode(std::shared_ptr< Blackboard > bb) :
-    CompositeBTNode(bb)
+SequenceBTNode::SequenceBTNode() :
+    CompositeBTNode()
 {
 }
 
@@ -19,23 +19,19 @@ SequenceBTNode::~SequenceBTNode()
 {
 }
 
-void SequenceBTNode::initialize()
+StatusType SequenceBTNode::process(Blackboard& blackBoard)
 {
-}
-
-StatusType SequenceBTNode::process()
-{
-    BTState* btState = static_cast<BTState*>(mBlackboard->get(Constants::currentBTState));
+    BTState* btState = static_cast<BTState*>(blackBoard.get(Constants::currentBTState));
 
     // retrieve node state data for this actor
     auto dogID = btState->currentDog->getID();
     auto stateID = std::to_string(mID) + "_" + std::to_string(dogID);
-    NodeActorAIState* state = static_cast<NodeActorAIState*>(mBlackboard->get(stateID));
+    NodeActorAIState* state = static_cast<NodeActorAIState*>(blackBoard.get(stateID));
     if (state == nullptr)
     {
         // first time using this actor
         state = new NodeActorAIState(mID);
-        mBlackboard->addValue(stateID, state);
+        blackBoard.addValue(stateID, state);
     }
 
     // check to see if last iteration with this actor was RUNNING
@@ -49,7 +45,7 @@ StatusType SequenceBTNode::process()
     StatusType result = StatusType::FAILURE;
     for (; i < mChildren.size(); ++i)
     {
-        result = mChildren[i]->process();
+        result = mChildren[i]->process(blackBoard);
 
         switch (result)
         {
@@ -68,8 +64,4 @@ StatusType SequenceBTNode::process()
     }
 
     return result;
-}
-
-void SequenceBTNode::terminate()
-{
 }

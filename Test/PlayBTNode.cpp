@@ -7,8 +7,8 @@
 
 #include <iostream>
 
-PlayBTNode::PlayBTNode(std::shared_ptr< Blackboard > bb) :
-    BaseBTNode(bb)
+PlayBTNode::PlayBTNode() :
+    LeafErrorBTNode()
 {
 }
 
@@ -17,13 +17,10 @@ PlayBTNode::~PlayBTNode()
 {
 }
 
-void PlayBTNode::initialize()
-{
-}
 
-StatusType PlayBTNode::process()
+StatusType PlayBTNode::process(Blackboard& blackBoard)
 {
-    BTState* btState = static_cast<BTState*>(mBlackboard->get(Constants::currentBTState));
+    BTState* btState = static_cast<BTState*>(blackBoard.get(Constants::currentBTState));
 
     Dog* dog = btState->currentDog;
 
@@ -49,13 +46,4 @@ StatusType PlayBTNode::process()
     std::cout << dog->getName() + " PLAYS with the ball! (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
 
     return result;
-}
-
-void PlayBTNode::terminate()
-{
-}
-
-void PlayBTNode::addNode(std::unique_ptr<BaseBTNode> newNode)
-{
-    std::cout << "ERROR::PlayBTNode: A node is being added to a leaf node!" << std::endl;
 }

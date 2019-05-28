@@ -93,6 +93,9 @@
     <ClInclude Include="EatBTNode.h">
       <Filter>Header Files\BT\Actions</Filter>
     </ClInclude>
+    <ClInclude Include="LeafErrorBTNode.h">
+      <Filter>Header Files\BT</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
@@ -151,6 +154,9 @@
     </ClCompile>
     <ClCompile Include="EatBTNode.cpp">
       <Filter>Source Files\BT\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="LeafErrorBTNode.cpp">
+      <Filter>Source Files\BT</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
