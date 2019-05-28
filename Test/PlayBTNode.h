@@ -1,24 +1,21 @@
 #ifndef PLAY_ACTION_BT_NODE_H
 #define PLAY_ACTION_BT_NODE_H
 
-#include "BaseBTNode.h"
+#include "LeafErrorBTNode.h"
 
 
 /// <summary>
 /// Action node that perform the Play activity
 /// </summary>
 /// <seealso cref="BaseBTNode" />
-class PlayBTNode : public BaseBTNode
+class PlayBTNode : public LeafErrorBTNode
 {
 public:
-    PlayBTNode(std::shared_ptr< Blackboard > bb);
+    PlayBTNode();
     virtual ~PlayBTNode();
 
     // Inherited via BaseBTNode
-    virtual void initialize() override;
-    virtual StatusType process() override;
-    virtual void terminate() override;
-    virtual void addNode(std::unique_ptr<BaseBTNode> newNode) override;
+    virtual StatusType process(Blackboard& blackBoard) override;
 };
 
 #endif //! PLAY_ACTION_BT_NODE_H

@@ -6,8 +6,8 @@
 
 #include <iostream>
 
-IsHungryConditionBTNode::IsHungryConditionBTNode(std::shared_ptr< Blackboard > bb) :
-    BaseBTNode(bb)
+IsHungryConditionBTNode::IsHungryConditionBTNode() :
+    LeafErrorBTNode()
 {
 }
 
@@ -15,13 +15,9 @@ IsHungryConditionBTNode::~IsHungryConditionBTNode()
 {
 }
 
-void IsHungryConditionBTNode::initialize()
+StatusType IsHungryConditionBTNode::process(Blackboard& blackBoard)
 {
-}
-
-StatusType IsHungryConditionBTNode::process()
-{
-    BTState* btState = static_cast<BTState*>(mBlackboard->get(Constants::currentBTState));
+    BTState* btState = static_cast<BTState*>(blackBoard.get(Constants::currentBTState));
 
     if (btState->currentDog->getEnergy() < Constants::energyThreshold)
     {
@@ -29,13 +25,4 @@ StatusType IsHungryConditionBTNode::process()
     }
 
     return StatusType::FAILURE;
-}
-
-void IsHungryConditionBTNode::terminate()
-{
-}
-
-void IsHungryConditionBTNode::addNode(std::unique_ptr<BaseBTNode> newNode)
-{
-    std::cout << "ERROR::IsHungryConditionBTNode: A node is being added to a leaf node!" << std::endl;
 }

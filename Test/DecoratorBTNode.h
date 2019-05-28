@@ -11,19 +11,17 @@
 class DecoratorBTNode : public BaseBTNode
 {
 public:
-    DecoratorBTNode(std::shared_ptr< Blackboard > bb);
+    DecoratorBTNode();
     virtual ~DecoratorBTNode();
 
     // Inherited via BaseBTNode
-    virtual void initialize() = 0;
-    virtual StatusType process() = 0;
-    virtual void terminate() = 0;
+    virtual StatusType process(Blackboard& blackBoard) = 0;
 
     /// <summary>
     /// Adds the node.
     /// </summary>
     /// <param name="newNode">The new node.</param>
-    virtual void addNode(std::unique_ptr<BaseBTNode> newNode) override;
+    virtual void addNode(BaseBTNode* newNode) override;
 
 protected:
     std::unique_ptr<BaseBTNode> mChild;

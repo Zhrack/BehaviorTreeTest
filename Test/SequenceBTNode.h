@@ -10,17 +10,15 @@
 class SequenceBTNode : public CompositeBTNode
 {
 public:
-    SequenceBTNode(std::shared_ptr< Blackboard > bb);
+    SequenceBTNode();
     virtual ~SequenceBTNode();
 
     // Inherited via CompositeBTNode
-    virtual void initialize() override;
     /// <summary>
     /// Processes this instance.
     /// </summary>
     /// <returns>A StatusType value.</returns>
-    virtual StatusType process() override;
-    virtual void terminate() override;
+    virtual StatusType process(Blackboard& blackBoard) override;
 };
 
 #endif // !SEQUENCE_BT_NODE_H

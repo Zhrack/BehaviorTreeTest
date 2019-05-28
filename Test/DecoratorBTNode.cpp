@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-DecoratorBTNode::DecoratorBTNode(std::shared_ptr< Blackboard > bb) :
-    BaseBTNode(bb),
+DecoratorBTNode::DecoratorBTNode() :
+    BaseBTNode(),
     mChild(nullptr)
 {
 }
@@ -14,7 +14,7 @@ DecoratorBTNode::~DecoratorBTNode()
 {
 }
 
-void DecoratorBTNode::addNode(std::unique_ptr<BaseBTNode> newNode)
+void DecoratorBTNode::addNode(BaseBTNode* newNode)
 {
     if (mChild)
     {
@@ -22,5 +22,5 @@ void DecoratorBTNode::addNode(std::unique_ptr<BaseBTNode> newNode)
         return;
     }
 
-    mChild = std::move(newNode);
+    mChild.reset(newNode);
 }

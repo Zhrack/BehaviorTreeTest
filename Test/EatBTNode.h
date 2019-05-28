@@ -1,24 +1,21 @@
 #ifndef EAT_ACTION_BT_NODE_H
 #define EAT_ACTION_BT_NODE_H
 
-#include "BaseBTNode.h"
+#include "LeafErrorBTNode.h"
 
 
 /// <summary>
 /// Action node that perform the Eat activity.
 /// </summary>
 /// <seealso cref="BaseBTNode" />
-class EatBTNode : public BaseBTNode
+class EatBTNode : public LeafErrorBTNode
 {
 public:
-    EatBTNode(std::shared_ptr< Blackboard > bb);
+    EatBTNode();
     virtual ~EatBTNode();
 
-    // Inherited via BaseBTNode
-    virtual void initialize() override;
-    virtual StatusType process() override;
-    virtual void terminate() override;
-    virtual void addNode(std::unique_ptr<BaseBTNode> newNode) override;
+    // Inherited via LeafErrorBTNode
+    virtual StatusType process(Blackboard& blackBoard) override;
 };
 
 #endif

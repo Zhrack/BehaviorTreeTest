@@ -11,17 +11,15 @@
 class SelectorBTNode : public CompositeBTNode
 {
 public:
-    SelectorBTNode(std::shared_ptr< Blackboard > bb);
+    SelectorBTNode();
     virtual ~SelectorBTNode();
 
     // Inherited via CompositeBTNode
-    virtual void initialize() override;
     /// <summary>
     /// Processes this instance.
     /// </summary>
     /// <returns>A StatusType value.</returns>
-    virtual StatusType process() override;
-    virtual void terminate() override;
+    virtual StatusType process(Blackboard& blackBoard) override;
 };
 
 #endif // !SELECTOR_BT_NODE_H

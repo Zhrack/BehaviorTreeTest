@@ -7,8 +7,8 @@
 
 #include <iostream>
 
-EatBTNode::EatBTNode(std::shared_ptr< Blackboard > bb) :
-    BaseBTNode(bb)
+EatBTNode::EatBTNode() :
+    LeafErrorBTNode()
 {
 }
 
@@ -17,13 +17,9 @@ EatBTNode::~EatBTNode()
 {
 }
 
-void EatBTNode::initialize()
+StatusType EatBTNode::process(Blackboard& blackBoard)
 {
-}
-
-StatusType EatBTNode::process()
-{
-    BTState* btState = static_cast<BTState*>(mBlackboard->get(Constants::currentBTState));
+    BTState* btState = static_cast<BTState*>(blackBoard.get(Constants::currentBTState));
 
     Dog* dog = btState->currentDog;
 
@@ -47,13 +43,4 @@ StatusType EatBTNode::process()
     std::cout << dog->getName() + " EATS! (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
 
     return result;
-}
-
-void EatBTNode::terminate()
-{
-}
-
-void EatBTNode::addNode(std::unique_ptr<BaseBTNode> newNode)
-{
-    std::cout << "ERROR::EatBTNode: A node is being added to a leaf node!" << std::endl;
 }

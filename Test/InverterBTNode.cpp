@@ -2,8 +2,8 @@
 #include "InverterBTNode.h"
 
 
-InverterBTNode::InverterBTNode(std::shared_ptr< Blackboard > bb) :
-    DecoratorBTNode(bb)
+InverterBTNode::InverterBTNode() :
+    DecoratorBTNode()
 {
 }
 
@@ -12,13 +12,9 @@ InverterBTNode::~InverterBTNode()
 {
 }
 
-void InverterBTNode::initialize()
+StatusType InverterBTNode::process(Blackboard& blackBoard)
 {
-}
-
-StatusType InverterBTNode::process()
-{
-    auto result = mChild->process();
+    auto result = mChild->process(blackBoard);
 
     switch (result)
     {
@@ -31,8 +27,4 @@ StatusType InverterBTNode::process()
         return StatusType::FAILURE;
         break;
     }
-}
-
-void InverterBTNode::terminate()
-{
 }

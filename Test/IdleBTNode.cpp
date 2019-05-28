@@ -8,8 +8,8 @@
 #include <iostream>
 
 
-IdleBTNode::IdleBTNode(std::shared_ptr< Blackboard > bb) : 
-    BaseBTNode(bb)
+IdleBTNode::IdleBTNode() : 
+    LeafErrorBTNode()
 {
 }
 
@@ -19,13 +19,9 @@ IdleBTNode::~IdleBTNode()
     
 }
 
-void IdleBTNode::initialize()
+StatusType IdleBTNode::process(Blackboard& blackBoard)
 {
-}
-
-StatusType IdleBTNode::process()
-{
-    BTState* btState = static_cast<BTState*>(mBlackboard->get(Constants::currentBTState));
+    BTState* btState = static_cast<BTState*>(blackBoard.get(Constants::currentBTState));
 
     Dog* dog = btState->currentDog;
 
@@ -50,13 +46,4 @@ StatusType IdleBTNode::process()
     std::cout << dog->getName() + " is waiting for you. (Energy " << dog->getEnergy() << ", Boredom " << dog->getBoredom() << ")" << std::endl;
 
     return result;
-}
-
-void IdleBTNode::terminate()
-{
-}
-
-void IdleBTNode::addNode(std::unique_ptr<BaseBTNode> newNode)
-{
-    std::cout << "ERROR::IdleBTNode: A node is being added to a leaf node!" << std::endl;
 }

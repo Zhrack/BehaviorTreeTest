@@ -2,8 +2,8 @@
 #include "CompositeBTNode.h"
 
 
-CompositeBTNode::CompositeBTNode(std::shared_ptr< Blackboard > bb) :
-   BaseBTNode(bb),
+CompositeBTNode::CompositeBTNode() :
+   BaseBTNode(),
     mChildren()
 {
 }
@@ -13,7 +13,8 @@ CompositeBTNode::~CompositeBTNode()
 }
 
 
-void CompositeBTNode::addNode(std::unique_ptr<BaseBTNode> newNode)
+void CompositeBTNode::addNode(BaseBTNode* newNode)
 {
-    this->mChildren.push_back(std::move(newNode));
+    std::unique_ptr<BaseBTNode> node(newNode);
+    this->mChildren.push_back(std::move(node));
 }
