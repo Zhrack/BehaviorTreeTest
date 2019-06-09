@@ -41,6 +41,12 @@ public:
     /// <param name="nodeID">The node identifier.</param>
     void cleanAllByNodeID(unsigned int nodeID);
 
+    /// <summary>
+    /// Cleans all instances linked to the given actor ID.
+    /// </summary>
+    /// <param name="actorID">The actor identifier.</param>
+    void cleanAllByActorID(unsigned int actorID);
+
 private:
     /// <summary>
     /// The data structure.
