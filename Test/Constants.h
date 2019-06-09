@@ -16,6 +16,7 @@ struct Constants
     static const int boredomStep;
 
     static const std::string currentBTState;
+    static const std::string numBTnodes;
 
     // misc settings
     static const int sleepBetweenStepsMilli;

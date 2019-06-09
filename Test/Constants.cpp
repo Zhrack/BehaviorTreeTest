@@ -39,6 +39,10 @@ const int Constants::boredomStep = 4;
 /// The current bt state key on the BlackBoard.
 /// </summary>
 const std::string Constants::currentBTState = std::string("currentBTState");
+/// <summary>
+/// The numbers of nodes key on the BlackBoard.
+/// </summary>
+const std::string Constants::numBTnodes = std::string("numBTnodes");
 
 /// <summary>
 /// The sleep between steps in milliseconds.

@@ -34,46 +34,57 @@ AIController::~AIController()
 
 void AIController::initialize()
 {
-
+    int* numNodes = new int;
     mBlackBoard.addValue(Constants::currentBTState, new BTState());
     // build behavior tree
     mRootNode.reset(new SelectorBTNode());
+    (*numNodes)++;
 
     // ------------------- IDLE BRANCH
     SequenceBTNode* idleSequence = new SequenceBTNode();
+    (*numNodes)++;
 
     InverterBTNode* isHungryIdleInverterDecorator = new InverterBTNode();
     InverterBTNode* isBoredIdleInverterDecorator = new InverterBTNode();
+    (*numNodes) += 2;
 
     // add to inverters
     isHungryIdleInverterDecorator->addNode(new IsHungryConditionBTNode());
     isBoredIdleInverterDecorator->addNode(new IsBoredConditionBTNode());
+    (*numNodes) += 2;
 
     // add to idle sequence
     idleSequence->addNode(isHungryIdleInverterDecorator);
     idleSequence->addNode(isBoredIdleInverterDecorator);
     idleSequence->addNode(new IdleBTNode());
+    (*numNodes)++;
 
     mRootNode->addNode(idleSequence);
 
     // ------------------- PLAY BRANCH
     SequenceBTNode* playSequence = new SequenceBTNode();
+    (*numNodes)++;
 
     InverterBTNode* isHungryPlayInverterDecorator = new InverterBTNode();
+    (*numNodes)++;
 
     // add to inverters
     isHungryPlayInverterDecorator->addNode(new IsHungryConditionBTNode());
+    (*numNodes)++;
 
     // add to play sequence
     playSequence->addNode(isHungryPlayInverterDecorator);
     playSequence->addNode(new PlayBTNode());
+    (*numNodes)++;
 
     mRootNode->addNode(playSequence);
 
     // ------------------- EAT BRANCH
 
     mRootNode->addNode(new EatBTNode());
+    (*numNodes)++;
 
+    mBlackBoard.addValue(Constants::numBTnodes, numNodes);
 }
 
 void AIController::update(std::vector<Dog*>& actors)
@@ -114,4 +125,9 @@ void AIController::update(std::vector<Dog*>& actors)
 
 void AIController::terminate()
 {
+}
+
+void AIController::clearDataByActorID(unsigned int actorID)
+{
+    mBlackBoard.cleanAllByActorID(actorID);
 }

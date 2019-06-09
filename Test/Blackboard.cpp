@@ -50,3 +50,12 @@ void Blackboard::cleanAllByNodeID(unsigned int nodeID)
         this->removeValue(std::to_string(nodeID) + "_" + std::to_string(i));
     }
 }
+
+void Blackboard::cleanAllByActorID(unsigned int actorID)
+{
+    int* nodes = static_cast<int*>(this->get(Constants::numBTnodes));
+    for (unsigned int i = 0; i < *nodes; ++i)
+    {
+        this->removeValue(std::to_string(i) + "_" + std::to_string(actorID));
+    }
+}
