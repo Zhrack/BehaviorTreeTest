@@ -32,12 +32,6 @@ public:
 
     void terminate();
 
-    /// <summary>
-    /// Clears the data by actor identifier.
-    /// </summary>
-    /// <param name="actorID">The actor identifier.</param>
-    void clearDataByActorID(unsigned int actorID);
-
 private:
     /// <summary>
     /// The blackboard that supports stateful data for the BT.
