@@ -15,7 +15,7 @@ public:
     virtual ~RepeaterUntilFailBTNode();
 
     // Inherited via DecoratorBTNode
-    virtual StatusType process(Blackboard& blackBoard) override;
+    virtual StatusType process(Blackboard& externalBB) override;
 };
 
 #endif // !REPEATER_UNTIL_FAIL_BT_NODE_H

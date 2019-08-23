@@ -15,7 +15,7 @@ public:
     virtual ~EatBTNode();
 
     // Inherited via LeafErrorBTNode
-    virtual StatusType process(Blackboard& blackBoard) override;
+    virtual StatusType process(Blackboard& externalBB) override;
 };
 
 #endif

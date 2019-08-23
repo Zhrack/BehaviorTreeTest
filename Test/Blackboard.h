@@ -53,7 +53,7 @@ private:
     /// </summary>
     std::unordered_map<
         std::string, 
-        std::unique_ptr<void*> > mData;
+        void* > mData;
 };
 
 #endif // !BLACKBOARD_H

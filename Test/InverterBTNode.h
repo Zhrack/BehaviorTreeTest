@@ -19,7 +19,7 @@ public:
     /// Processes this instance.
     /// </summary>
     /// <returns>A StatusType value.</returns>
-    virtual StatusType process(Blackboard& blackBoard) override;
+    virtual StatusType process(Blackboard& externalBB) override;
 };
 
 #endif // !INVERTER_BT_NODE_H

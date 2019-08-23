@@ -30,7 +30,7 @@ public:
     /// Processes this node.
     /// </summary>
     /// <returns>The finishing status of the node.</returns>
-    virtual StatusType process(Blackboard& blackBoard) = 0;
+    virtual StatusType process(Blackboard& externalBB) = 0;
 
     /// <summary>
     /// Adds the node to children list.
@@ -48,6 +48,8 @@ protected:
     /// The ID of this node. Used to store and retrieve data on the BlackBoard.
     /// </summary>
     unsigned int mID;
+
+    Blackboard  mBlackboard;
 };
 
 

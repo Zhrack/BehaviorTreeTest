@@ -22,7 +22,7 @@ public:
     /// <returns>
     /// The finishing status of the node, SUCCESS or FAILURE.
     /// </returns>
-    virtual StatusType process(Blackboard& blackBoard) override;
+    virtual StatusType process(Blackboard& externalBB) override;
 };
 
 

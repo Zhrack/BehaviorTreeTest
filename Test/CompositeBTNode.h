@@ -17,7 +17,7 @@ public:
     virtual ~CompositeBTNode();
 
     // Inherited via BaseBTNode
-    virtual StatusType process(Blackboard& blackBoard) = 0;
+    virtual StatusType process(Blackboard& externalBB) = 0;
 
     virtual void addNode(BaseBTNode* newNode) override;
 
