@@ -28,6 +28,7 @@ AIController::~AIController()
 void AIController::initialize()
 {
     int* numNodes = new int;
+    (*numNodes) = 0;
     // build behavior tree
     mRootNode.reset(new SelectorBTNode());
     (*numNodes)++;
@@ -117,9 +118,4 @@ void AIController::update(std::vector<Dog*>& actors)
 
 void AIController::terminate()
 {
-}
-
-void AIController::clearDataByActorID(unsigned int actorID)
-{
-    mBlackBoard.cleanAllByActorID(actorID);
 }
