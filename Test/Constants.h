@@ -15,7 +15,8 @@ struct Constants
     static const int boredomThreshold;
     static const int boredomStep;
 
-    static const std::string currentBTState;
+    static const std::string currentChildRunning;
+    static const std::string currentDog;
     static const std::string numBTnodes;
 
     // misc settings

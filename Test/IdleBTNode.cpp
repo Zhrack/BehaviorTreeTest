@@ -19,11 +19,9 @@ IdleBTNode::~IdleBTNode()
     
 }
 
-StatusType IdleBTNode::process(Blackboard& blackBoard)
+StatusType IdleBTNode::process(Blackboard& externalBB)
 {
-    BTState* btState = static_cast<BTState*>(blackBoard.get(Constants::currentBTState));
-
-    Dog* dog = btState->currentDog;
+    Dog* dog = static_cast<Dog*>(externalBB.get(Constants::currentDog));
 
     StatusType result = StatusType::RUNNING;
 

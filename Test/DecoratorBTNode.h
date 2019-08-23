@@ -15,7 +15,7 @@ public:
     virtual ~DecoratorBTNode();
 
     // Inherited via BaseBTNode
-    virtual StatusType process(Blackboard& blackBoard) = 0;
+    virtual StatusType process(Blackboard& externalBB) = 0;
 
     /// <summary>
     /// Adds the node.

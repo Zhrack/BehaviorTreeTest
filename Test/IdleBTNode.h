@@ -15,7 +15,7 @@ public:
     virtual ~IdleBTNode();
 
     // Inherited via BaseBTNode
-    virtual StatusType process(Blackboard& blackBoard) override;
+    virtual StatusType process(Blackboard& externalBB) override;
 };
 
 #endif // !IDLE_ACTION_BT_NODE_H

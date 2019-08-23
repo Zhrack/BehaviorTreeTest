@@ -36,9 +36,13 @@ const int Constants::boredomThreshold = 80;
 const int Constants::boredomStep = 4;
 
 /// <summary>
-/// The current bt state key on the BlackBoard.
+/// The current running child index key on the BlackBoard.
 /// </summary>
-const std::string Constants::currentBTState = std::string("currentBTState");
+const std::string Constants::currentChildRunning = std::string("currentChildRunning");
+/// <summary>
+/// The current dog pointer to be simulated.
+/// </summary>
+const std::string Constants::currentDog = std::string("currentDog");
 /// <summary>
 /// The numbers of nodes key on the BlackBoard.
 /// </summary>

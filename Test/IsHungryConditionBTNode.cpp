@@ -15,11 +15,11 @@ IsHungryConditionBTNode::~IsHungryConditionBTNode()
 {
 }
 
-StatusType IsHungryConditionBTNode::process(Blackboard& blackBoard)
+StatusType IsHungryConditionBTNode::process(Blackboard& externalBB)
 {
-    BTState* btState = static_cast<BTState*>(blackBoard.get(Constants::currentBTState));
+    Dog* currentDog = static_cast<Dog*>(externalBB.get(Constants::currentDog));
 
-    if (btState->currentDog->getEnergy() < Constants::energyThreshold)
+    if (currentDog->getEnergy() < Constants::energyThreshold)
     {
         return StatusType::SUCCESS;
     }

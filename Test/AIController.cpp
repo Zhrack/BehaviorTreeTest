@@ -23,19 +23,11 @@ AIController::AIController() :
 
 AIController::~AIController()
 {
-    BTState* state = static_cast<BTState*>(mBlackBoard.get(Constants::currentBTState));
-    if (state != nullptr)
-    {
-        delete state;
-        state = nullptr;
-        mBlackBoard.removeValue(Constants::currentBTState);
-    }
 }
 
 void AIController::initialize()
 {
     int* numNodes = new int;
-    mBlackBoard.addValue(Constants::currentBTState, new BTState());
     // build behavior tree
     mRootNode.reset(new SelectorBTNode());
     (*numNodes)++;
@@ -89,18 +81,18 @@ void AIController::initialize()
 
 void AIController::update(std::vector<Dog*>& actors)
 {
-    BTState* btState = static_cast<BTState*>(mBlackBoard.get(Constants::currentBTState));
-    btState->numActors = static_cast<unsigned int>(actors.size());
+    //BTState* btState = static_cast<BTState*>(mBlackBoard.get(Constants::currentBTState));
+    //btState->numActors = static_cast<unsigned int>(actors.size());
 
     std::cout << "---- NEW UPDATE CYCLE ----" << std::endl;
     std::cout << std::endl;
 
     // run BT for currentDog
     std::string resultText;
-    for (auto it = actors.begin(); it != actors.end(); ++it)
+    for (size_t i = 0; i < actors.size(); ++i)
     {
         // update currentDog value
-        btState->currentDog = *it;
+        mBlackBoard.addValue(Constants::currentDog, actors[i]);
         auto result = mRootNode->process(mBlackBoard);
 
         switch (result)
@@ -118,7 +110,7 @@ void AIController::update(std::vector<Dog*>& actors)
             break;
         }
 
-        std::cout << "BT for " << (*it)->getName() << " returns " << resultText << std::endl;
+        std::cout << "BT for " << actors[i]->getName() << " returns " << resultText << std::endl;
         std::cout << std::endl;
     }
 }

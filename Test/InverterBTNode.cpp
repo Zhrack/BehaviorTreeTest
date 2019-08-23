@@ -12,9 +12,9 @@ InverterBTNode::~InverterBTNode()
 {
 }
 
-StatusType InverterBTNode::process(Blackboard& blackBoard)
+StatusType InverterBTNode::process(Blackboard& externalBB)
 {
-    auto result = mChild->process(blackBoard);
+    auto result = mChild->process(externalBB);
 
     switch (result)
     {

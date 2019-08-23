@@ -16,11 +16,11 @@ IsBoredConditionBTNode::~IsBoredConditionBTNode()
 {
 }
 
-StatusType IsBoredConditionBTNode::process(Blackboard& blackBoard)
+StatusType IsBoredConditionBTNode::process(Blackboard& externalBB)
 {
-    BTState* btState = static_cast<BTState*>(blackBoard.get(Constants::currentBTState));
+    Dog* currentDog = static_cast<Dog*>(externalBB.get(Constants::currentDog));
 
-    if (btState->currentDog->getBoredom() > Constants::boredomThreshold)
+    if (currentDog->getBoredom() > Constants::boredomThreshold)
     {
         return StatusType::SUCCESS;
     }

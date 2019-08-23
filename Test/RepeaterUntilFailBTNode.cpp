@@ -12,9 +12,9 @@ RepeaterUntilFailBTNode::~RepeaterUntilFailBTNode()
 {
 }
 
-StatusType RepeaterUntilFailBTNode::process(Blackboard& blackBoard)
+StatusType RepeaterUntilFailBTNode::process(Blackboard& externalBB)
 {
-    auto result = mChild->process(blackBoard);
+    auto result = mChild->process(externalBB);
 
     switch (result)
     {
