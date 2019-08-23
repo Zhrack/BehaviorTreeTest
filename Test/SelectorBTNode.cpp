@@ -2,9 +2,7 @@
 #include "SelectorBTNode.h"
 
 #include "Constants.h"
-#include "BTState.h"
 #include "Dog.h"
-#include "NodeActorAIState.h"
 
 #include <string>
 #include <iostream>

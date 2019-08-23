@@ -2,8 +2,7 @@
 #include "IdleBTNode.h"
 
 #include "Dog.h"
-#include "BTState.h"
-#include "NodeActorAIState.h"
+#include "Constants.h"
 
 #include <iostream>
 

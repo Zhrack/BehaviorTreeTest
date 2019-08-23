@@ -3,7 +3,6 @@
 
 #include "Blackboard.h"
 #include "Dog.h"
-#include "BTState.h"
 #include "BaseBTNode.h"
 
 #include <memory>

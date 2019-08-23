@@ -1,7 +1,6 @@
  
 #include "Blackboard.h"
 
-#include "BTState.h"
 
 Blackboard::Blackboard() :
     mData()
