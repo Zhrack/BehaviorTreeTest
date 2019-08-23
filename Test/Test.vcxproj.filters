@@ -159,9 +159,4 @@
       <Filter>Source Files\BT</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="mainpage.dox">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
 </Project>
