@@ -154,13 +154,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BTState.h" />
     <ClInclude Include="DecoratorBTNode.h" />
     <ClInclude Include="EatBTNode.h" />
     <ClInclude Include="IdleBTNode.h" />
     <ClInclude Include="InverterBTNode.h" />
     <ClInclude Include="LeafErrorBTNode.h" />
-    <ClInclude Include="NodeActorAIState.h" />
     <ClInclude Include="BaseBTNode.h" />
     <ClInclude Include="AIController.h" />
     <ClInclude Include="Blackboard.h" />
@@ -181,7 +179,6 @@
     <ClCompile Include="IdleBTNode.cpp" />
     <ClCompile Include="InverterBTNode.cpp" />
     <ClCompile Include="LeafErrorBTNode.cpp" />
-    <ClCompile Include="NodeActorAIState.cpp" />
     <ClCompile Include="BaseBTNode.cpp" />
     <ClCompile Include="AIController.cpp" />
     <ClCompile Include="Blackboard.cpp" />
