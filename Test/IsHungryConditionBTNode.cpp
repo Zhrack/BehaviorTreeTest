@@ -2,7 +2,7 @@
 #include "IsHungryConditionBTNode.h"
 #include "Dog.h"
 
-#include "BTState.h"
+#include "Constants.h"
 
 #include <iostream>
 
